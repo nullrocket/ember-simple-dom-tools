@@ -6,7 +6,7 @@
  * @kind function
  * @param {Array} elements An element or an array of elements to append
  * @param {DomElement} destination A DOM element to append elements to.
- * @returns {Array}
+ * @returns {Array|undefined}
  */
 export default function(elements, destination){
   let fragment = document.createDocumentFragment();
@@ -28,7 +28,5 @@ export default function(elements, destination){
       return children;
     }
   }
-  else{
-    return undefined;
-  }
+
 }

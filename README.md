@@ -4,9 +4,41 @@ Absolutely untested and highly experimental.  Actually useless for the moment.
 
 ember-simple-dom-tools is a collection of dom utilities as an alternative to jQuery.
 
----
+## Use
 
----
+First you install this addon
+
+```sh
+# ember-cli > 0.2.3
+ember install ember-dom-simple-tools
+# ember-cli <= 0.2.3
+ember install:addon ember-dom-simple-tools
+```
+
+And then in your ember.js app, you can import individual modules
+
+```js
+import select from 'ember-dom-simple-tools/select';
+
+let selectedDom = select('.content');
+```
+
+Additionally, if you wish to work with the entire lodash library on a single namespace, you have the option of importing that as well
+
+```js
+import _ from 'lodash';
+
+let truncatedString = _.trunc(rawString);
+```
+
+It is also possible to import individual modules
+
+```js
+import { trunc } from 'lodash';
+
+let truncatedString = trunc(rawString);
+```
+
 ## Installation
 
 * `git clone <repository-url>` this repository
@@ -32,7 +64,7 @@ ember-simple-dom-tools is a collection of dom utilities as an alternative to jQu
 ## Functions
 
 <dl>
-<dt><a href="#append">append(elements, destination)</a> ⇒ <code>Array</code></dt>
+<dt><a href="#append">append(elements, destination)</a> ⇒ <code>Array</code> | <code>undefined</code></dt>
 <dd></dd>
 <dt><a href="#create">create(A)</a> ⇒ <code>NodeList</code></dt>
 <dd></dd>
@@ -50,7 +82,7 @@ ember-simple-dom-tools is a collection of dom utilities as an alternative to jQu
 
 <a name="append"></a>
 
-## append(elements, destination) ⇒ <code>Array</code>
+## append(elements, destination) ⇒ <code>Array</code> \| <code>undefined</code>
 **Kind**: global function  
 
 | Param | Type | Description |
