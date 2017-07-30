@@ -37,7 +37,7 @@ You can import the entire library on a single namespace
 ```js
 import dom from 'ember-dom-simple-tools';
 
-let selectedDom = dom.select('.content);
+let selectedDom = dom.select('.content');
 ```
 
 
