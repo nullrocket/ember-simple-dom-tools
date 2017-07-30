@@ -34,6 +34,8 @@ ember-simple-dom-tools is a collection of dom utilities as an alternative to jQu
 <dl>
 <dt><a href="#append">append(elements, destination)</a> ⇒ <code>Array</code></dt>
 <dd></dd>
+<dt><a href="#create">create(A)</a> ⇒ <code>NodeList</code></dt>
+<dd></dd>
 <dt><a href="#height">height(elements, [toHeight])</a> ⇒ <code>Number</code> | <code>undefined</code></dt>
 <dd></dd>
 <dt><a href="#outerHeight">outerHeight(elements, [margins])</a> ⇒ <code>Array</code></dt>
@@ -55,6 +57,15 @@ ember-simple-dom-tools is a collection of dom utilities as an alternative to jQu
 | --- | --- | --- |
 | elements | <code>Array</code> | An element or an array of elements to append |
 | destination | <code>DomElement</code> | A DOM element to append elements to. |
+
+<a name="create"></a>
+
+## create(A) ⇒ <code>NodeList</code>
+**Kind**: global function  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| A | <code>string</code> | valid string of html |
 
 <a name="height"></a>
 
