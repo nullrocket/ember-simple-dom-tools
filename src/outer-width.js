@@ -2,25 +2,15 @@
 function compute(element, property) {
   return parseInt(window.getComputedStyle(element[0], null)[property], 10) || 0;
 }
-/*
-each(['Width','width'],v => {
 
-  var lower = v.toLowerCase();
-
-  fn[lower] = function(){ return this[0].getBoundingClientRect()[lower]; };
-
-  fn['inner'+v] = function(){ return this[0]['client'+v]; };
-
-  fn['outer'+v] = function(margins) {
-    return this[0]['offset'+v] + ( margins ?
-      compute(this, 'margin'+( v === 'Width' ? 'Left' : 'Top' )) +
-      compute(this, 'margin'+( v === 'Width' ? 'Right' : 'Bottom' )) :
-      0 );
-  };
-
-});
-*/
-
+/**
+ * @module ember-simple-dom-tools
+ * @function outerWidth
+ * @kind function
+ * @param {Array} elements An element or an array of elements to get outerWidth from
+ * @param {boolean} [margins] If true include margins in the return value.
+ * @returns {Array}
+ */
 export default function(elements,margins){
 
     if ( elements ) {

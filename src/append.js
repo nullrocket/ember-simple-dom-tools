@@ -3,8 +3,9 @@
 /**
  * @module ember-simple-dom-tools
  * @function append
- * @param {Array} elements An array of elements to append
- * @param {DomElement} destination A DOM element to append elements to
+ * @kind function
+ * @param {Array} elements An element or an array of elements to append
+ * @param {DomElement} destination A DOM element to append elements to.
  * @returns {Array}
  */
 export default function(elements, destination){

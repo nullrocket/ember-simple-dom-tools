@@ -49,8 +49,8 @@ ember-simple-dom-tools is a collection of dom utilities as an alternative to jQu
 
 | Param | Type | Description |
 | --- | --- | --- |
-| elements | <code>Array</code> | An array of elements to append |
-| destination | <code>DomElement</code> | A DOM element to append elements to |
+| elements | <code>Array</code> | An element or an array of elements to append |
+| destination | <code>DomElement</code> | A DOM element to append elements to. |
 
 <a name="height"></a>
 
