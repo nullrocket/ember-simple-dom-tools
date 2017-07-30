@@ -24,8 +24,14 @@ function find( selector, context ) {
 
 
 
-
-
+/**
+ * @module ember-simple-dom-tools
+ * @function select
+ * @selector {string} selector A valid css selector
+ * @param {DomElement} element
+ * @param {Array} [context]
+ * @returns {Array}
+ */
 export default function ( selector, context ) {
 
   if ( !selector ) { return []}

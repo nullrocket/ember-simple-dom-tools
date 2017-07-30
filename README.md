@@ -34,6 +34,8 @@ ember-simple-dom-tools is a collection of dom utilities as an alternative to jQu
 <dl>
 <dt><a href="#height">height(elements, [toHeight])</a> ⇒ <code>Number</code> | <code>undefined</code></dt>
 <dd></dd>
+<dt><a href="#select">select(element, [context])</a> ⇒ <code>Array</code></dt>
+<dd></dd>
 <dt><a href="#width">width(elements, [toWidth])</a> ⇒ <code>Number</code> | <code>undefined</code></dt>
 <dd></dd>
 </dl>
@@ -47,6 +49,17 @@ ember-simple-dom-tools is a collection of dom utilities as an alternative to jQu
 | --- | --- |
 | elements | <code>DomElement</code> \| <code>NodeList</code> \| <code>HTMLCollection</code> \| <code>Array</code> | 
 | [toHeight] | <code>string</code> | 
+
+<a name="select"></a>
+
+## select(element, [context]) ⇒ <code>Array</code>
+**Kind**: global function  
+**Selector**: <code>string</code> selector A valid css selector  
+
+| Param | Type |
+| --- | --- |
+| element | <code>DomElement</code> | 
+| [context] | <code>Array</code> | 
 
 <a name="width"></a>
 
