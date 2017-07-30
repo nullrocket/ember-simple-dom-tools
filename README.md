@@ -15,7 +15,7 @@ ember install ember-dom-simple-tools
 ember install:addon ember-dom-simple-tools
 ```
 
-And then in your ember.js app, you can import individual modules
+You can import individual modules
 
 ```js
 import select from 'ember-dom-simple-tools/select';
@@ -23,21 +23,23 @@ import select from 'ember-dom-simple-tools/select';
 let selectedDom = select('.content');
 ```
 
-Additionally, if you wish to work with the entire lodash library on a single namespace, you have the option of importing that as well
+Or
 
 ```js
-import _ from 'lodash';
+import { select } from 'ember-dom-simple-tools';
 
-let truncatedString = _.trunc(rawString);
+let selectedDom = select('.content');
 ```
 
-It is also possible to import individual modules
+
+You can import the entire library on a single namespace
 
 ```js
-import { trunc } from 'lodash';
+import dom from 'ember-dom-simple-tools';
 
-let truncatedString = trunc(rawString);
+let selectedDom = dom.select('.content);
 ```
+
 
 ## Installation
 
