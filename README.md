@@ -1,11 +1,14 @@
-# ember-cli-dom-tools
+# ember-simple-dom-tools
 
-This README outlines the details of collaborating on this Ember addon.
+Absolutely untested and highly experimental.
+
+ember-simple-dom-tools is a collection of dom utilities as an alternative to jQuery.
+
 
 ## Installation
 
 * `git clone <repository-url>` this repository
-* `cd ember-cli-dom-tools`
+* `cd ember-simple-dom-tools`
 * `npm install`
 
 ## Running
