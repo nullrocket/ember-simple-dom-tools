@@ -4,6 +4,8 @@ Absolutely untested and highly experimental.
 
 ember-simple-dom-tools is a collection of dom utilities as an alternative to jQuery.
 
+---
+
 ## Installation
 
 * `git clone <repository-url>` this repository
