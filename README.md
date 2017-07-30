@@ -1,6 +1,6 @@
 # ember-simple-dom-tools
 
-Absolutely untested and highly experimental.
+Absolutely untested and highly experimental.  Actually useless for the moment.
 
 ember-simple-dom-tools is a collection of dom utilities as an alternative to jQuery.
 
@@ -36,6 +36,10 @@ ember-simple-dom-tools is a collection of dom utilities as an alternative to jQu
 <dd></dd>
 <dt><a href="#height">height(elements, [toHeight])</a> ⇒ <code>Number</code> | <code>undefined</code></dt>
 <dd></dd>
+<dt><a href="#outerHeight">outerHeight(elements, [margins])</a> ⇒ <code>Array</code></dt>
+<dd></dd>
+<dt><a href="#outerWidth">outerWidth(elements, [margins])</a> ⇒ <code>Array</code></dt>
+<dd></dd>
 <dt><a href="#select">select(selector, context)</a> ⇒ <code>Array</code></dt>
 <dd></dd>
 <dt><a href="#width">width(elements, [toWidth])</a> ⇒ <code>Number</code> | <code>undefined</code></dt>
@@ -61,6 +65,26 @@ ember-simple-dom-tools is a collection of dom utilities as an alternative to jQu
 | --- | --- |
 | elements | <code>DomElement</code> \| <code>NodeList</code> \| <code>HTMLCollection</code> \| <code>Array</code> | 
 | [toHeight] | <code>string</code> | 
+
+<a name="outerHeight"></a>
+
+## outerHeight(elements, [margins]) ⇒ <code>Array</code>
+**Kind**: global function  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| elements | <code>Array</code> | An element or an array of elements to get outerHeight from |
+| [margins] | <code>boolean</code> | If true include margins in the return value. |
+
+<a name="outerWidth"></a>
+
+## outerWidth(elements, [margins]) ⇒ <code>Array</code>
+**Kind**: global function  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| elements | <code>Array</code> | An element or an array of elements to get outerWidth from |
+| [margins] | <code>boolean</code> | If true include margins in the return value. |
 
 <a name="select"></a>
 
