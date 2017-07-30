@@ -1,8 +1,8 @@
 /**
  * @module ember-simple-dom-tools
  * @function width
- * @param {DomElement|NodeList|HTMLCollection|Array} elements
- * @param {string} [toWidth]
+ * @param {Element|Array<Element>|NodeList|HTMLCollection} elements Elements to get the width of.
+ * @param {string} [toWidth]  If supplied will set the width of the passed elements.
  * @returns {Number|undefined}
  */
 export default function(elements,toWidth){
@@ -15,10 +15,4 @@ export default function(elements,toWidth){
         return width ?  elements.style.width = width : elements.getBoundingClientRect()[ "width" ];
       }
     }
-    else {
-      return undefined;
-    }
-
-
-
 }

@@ -146,9 +146,9 @@ let selectedDom = dom.select('.content');
 ## width(elements, [toWidth]) ⇒ <code>Number</code> \| <code>undefined</code>
 **Kind**: global function  
 
-| Param | Type |
-| --- | --- |
-| elements | <code>DomElement</code> \| <code>NodeList</code> \| <code>HTMLCollection</code> \| <code>Array</code> | 
-| [toWidth] | <code>string</code> | 
+| Param | Type | Description |
+| --- | --- | --- |
+| elements | <code>Element</code> \| <code>Array.&lt;Element&gt;</code> \| <code>NodeList</code> \| <code>HTMLCollection</code> | Elements to get the width of. |
+| [toWidth] | <code>string</code> | If supplied will set the width of the passed elements. |
 
 
