@@ -6,6 +6,7 @@ ember-simple-dom-tools is a collection of dom utilities as an alternative to jQu
 
 ---
 
+---
 ## Installation
 
 * `git clone <repository-url>` this repository
@@ -33,7 +34,7 @@ ember-simple-dom-tools is a collection of dom utilities as an alternative to jQu
 <dl>
 <dt><a href="#height">height(elements, [toHeight])</a> ⇒ <code>Number</code> | <code>undefined</code></dt>
 <dd></dd>
-<dt><a href="#width">width(elements, [toWidth])</a> ⇒ <code>Number</code></dt>
+<dt><a href="#width">width(elements, [toWidth])</a> ⇒ <code>Number</code> | <code>undefined</code></dt>
 <dd></dd>
 </dl>
 
@@ -44,12 +45,12 @@ ember-simple-dom-tools is a collection of dom utilities as an alternative to jQu
 
 | Param | Type |
 | --- | --- |
-| elements | <code>sginr</code> | 
+| elements | <code>DomElement</code> \| <code>NodeList</code> \| <code>HTMLCollection</code> \| <code>Array</code> | 
 | [toHeight] | <code>string</code> | 
 
 <a name="width"></a>
 
-## width(elements, [toWidth]) ⇒ <code>Number</code>
+## width(elements, [toWidth]) ⇒ <code>Number</code> \| <code>undefined</code>
 **Kind**: global function  
 
 | Param | Type |

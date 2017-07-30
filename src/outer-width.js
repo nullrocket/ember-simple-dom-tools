@@ -21,15 +21,15 @@ each(['Width','width'],v => {
 });
 */
 
-export default function(elements){
+export default function(elements,margins){
 
     if ( elements ) {
       if ( Array.isArray(elements) || elements instanceof NodeList || elements instanceof HTMLCollection ) {
-        return elements[ 0 ].getBoundingClientRect()[ "width" ];
+        return elements[0]['offsetWidth'] + ( margins ?    compute(elements[0], 'marginLeft') + compute(elements[0], 'marginRight') :        0 );
       }
       else {
 
-        return elements.getBoundingClientRect()[ "width" ];
+        return elements['offsetWidth'] + ( margins ?    compute(elements, 'marginLeft') + compute(elements, 'marginRight') :        0 );
       }
     }
     else {
