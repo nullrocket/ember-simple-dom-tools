@@ -1,9 +1,14 @@
 
 
-
+/**
+ * @module ember-simple-dom-tools
+ * @function append
+ * @param {Array} elements An array of elements to append
+ * @param {DomElement} destination A DOM element to append elements to
+ * @returns {Array}
+ */
 export default function(elements, destination){
   let fragment = document.createDocumentFragment();
-
   if(elements) {
 
     if ( Array.isArray(elements) || elements instanceof NodeList || elements instanceof HTMLCollection ) {

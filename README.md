@@ -32,13 +32,25 @@ ember-simple-dom-tools is a collection of dom utilities as an alternative to jQu
 ## Functions
 
 <dl>
+<dt><a href="#append">append(elements, destination)</a> ⇒ <code>Array</code></dt>
+<dd></dd>
 <dt><a href="#height">height(elements, [toHeight])</a> ⇒ <code>Number</code> | <code>undefined</code></dt>
 <dd></dd>
-<dt><a href="#select">select(selector, element, [context])</a> ⇒ <code>Array</code></dt>
+<dt><a href="#select">select(selector, context)</a> ⇒ <code>Array</code></dt>
 <dd></dd>
 <dt><a href="#width">width(elements, [toWidth])</a> ⇒ <code>Number</code> | <code>undefined</code></dt>
 <dd></dd>
 </dl>
+
+<a name="append"></a>
+
+## append(elements, destination) ⇒ <code>Array</code>
+**Kind**: global function  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| elements | <code>Array</code> | An array of elements to append |
+| destination | <code>DomElement</code> | A DOM element to append elements to |
 
 <a name="height"></a>
 
@@ -52,14 +64,13 @@ ember-simple-dom-tools is a collection of dom utilities as an alternative to jQu
 
 <a name="select"></a>
 
-## select(selector, element, [context]) ⇒ <code>Array</code>
+## select(selector, context) ⇒ <code>Array</code>
 **Kind**: global function  
 
 | Param | Type | Description |
 | --- | --- | --- |
 | selector | <code>string</code> | A valid css selector |
-| element | <code>DomElement</code> | A DOM element to use as context |
-| [context] | <code>Array</code> |  |
+| context | <code>DomElement</code> | A DOM element to use as context |
 
 <a name="width"></a>
 
