@@ -6,7 +6,7 @@ ember-simple-dom-tools is a collection of dom utilities as an alternative to jQu
 
 ## Use
 
-First you install this addon
+Install  addon
 
 ```sh
 # ember-cli > 0.2.3
@@ -23,7 +23,7 @@ import select from 'ember-dom-simple-tools/select';
 let selectedDom = select('.content');
 ```
 
-Or
+-or-
 
 ```js
 import { select } from 'ember-dom-simple-tools';

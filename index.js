@@ -21,65 +21,17 @@ module.exports = {
   },
 
     treeForAddon(tree) {
-      let lodashTree = this._debugTree('src', 'input');
-      lodashTree = new Funnel(lodashTree);
+      let newTree = this._debugTree('src', 'input');
+      newTree = new Funnel(newTree);
 
-/*
-      lodashTree = replace(lodashTree, {
-        files: ['*.js'],
-        pattern: {
-          match: /\.js/g,
-          replacement: ''
-        }
-      });
 
-      lodashTree = this._debugTree(lodashTree, 'post-extension-replace');
-
-      lodashTree = new Funnel(lodashTree, {
-        getDestinationPath(path) {
-          if (path === 'lodash.js') {
-            return 'index.js';
-          }
-
-          return path;
-        }
-      });
-
-      lodashTree = this._debugTree(lodashTree, 'post-index-move');
-
-      lodashTree = replace(lodashTree, {
-        files: ['_getNative.js'],
-        pattern: {
-          match: /undefined/g,
-          replacement: 'null'
-        }
-      });
-
-      lodashTree = replace(lodashTree, {
-        files: ['_defineProperty.js'],
-        pattern: {
-          match: /catch ?\(e\) ?{ ?}/g,
-          replacement: 'catch(e) { return null; }'
-        }
-      });
-
-      lodashTree = this._debugTree(lodashTree, 'post-replacement');
 
       if (tree) {
-        tree = mergeTrees([lodashTree, tree], {
+        tree = mergeTrees([newTree, tree], {
           overwrite: true
         });
       } else {
-        tree = lodashTree;
-      }
-*/
-
-      if (tree) {
-        tree = mergeTrees([lodashTree, tree], {
-          overwrite: true
-        });
-      } else {
-        tree = lodashTree;
+        tree = newTree;
       }
       return this._super.treeForAddon.call(this, tree);
     }

@@ -41,9 +41,5 @@ export default function(elements,margins){
       return elements['offsetHeight'] + ( margins ?    compute(elements, 'marginTop') + compute(elements, 'marginBottom') :        0 );
     }
   }
-  else {
-    return undefined;
-  }
-
 
 }

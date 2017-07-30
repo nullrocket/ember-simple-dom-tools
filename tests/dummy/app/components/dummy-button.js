@@ -5,9 +5,16 @@ import create from 'ember-simple-dom-tools/create';
 import append from 'ember-simple-dom-tools/append';
 import height from 'ember-simple-dom-tools/height';
 import width from "ember-simple-dom-tools/width";
+import dom from "ember-simple-dom-tools";
+import {outerHeight} from "ember-simple-dom-tools";
 export default Ember.Component.extend({
   layout,
   didInsertElement(){
+    console.log('dom.select',dom.select('body'));
+    console.log('dom.select',dom.select('html'));
+    console.log('dom.select',dom.select('head'));
+    console.log('dom.select',dom.select('script',dom.select('head')[0]));
+    console.log('outerHeight',outerHeight(select('body')))
     console.log(select('body'));
     let someNodes = create('<div>bob</div><div>Joe</div>');
     console.log(someNodes);
@@ -31,6 +38,7 @@ export default Ember.Component.extend({
     let input2 = create('<input>');
     append(input,this.get('element'));
     append(input2,this.get('element'));
+    console.log('outerHeight',outerHeight(select('body')))
   }
 
 });
