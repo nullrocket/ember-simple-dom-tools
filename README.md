@@ -68,7 +68,7 @@ let selectedDom = dom.select('.content');
 <dl>
 <dt><a href="#append">append(elements, destination)</a> ⇒ <code>Array</code> | <code>undefined</code></dt>
 <dd></dd>
-<dt><a href="#create">create(A)</a> ⇒ <code>NodeList</code></dt>
+<dt><a href="#create">create(html)</a> ⇒ <code>NodeList</code></dt>
 <dd></dd>
 <dt><a href="#height">height(elements, [toHeight])</a> ⇒ <code>Number</code> | <code>undefined</code></dt>
 <dd></dd>
@@ -94,12 +94,12 @@ let selectedDom = dom.select('.content');
 
 <a name="create"></a>
 
-## create(A) ⇒ <code>NodeList</code>
+## create(html) ⇒ <code>NodeList</code>
 **Kind**: global function  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| A | <code>string</code> | valid string of html |
+| html | <code>string</code> | A valid string of html |
 
 <a name="height"></a>
 
