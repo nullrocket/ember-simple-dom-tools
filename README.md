@@ -76,6 +76,8 @@ let selectedDom = dom.select('.content');
 <dd></dd>
 <dt><a href="#outerWidth">outerWidth(elements, [margins])</a> ⇒ <code>Array</code></dt>
 <dd></dd>
+<dt><a href="#select">select(selector, context)</a> ⇒ <code>Array</code></dt>
+<dd></dd>
 <dt><a href="#width">width(elements, [toWidth])</a> ⇒ <code>Number</code> | <code>undefined</code></dt>
 <dd></dd>
 </dl>
@@ -128,6 +130,18 @@ let selectedDom = dom.select('.content');
 | --- | --- | --- |
 | elements | <code>Array</code> | An element or an array of elements to get outerWidth from |
 | [margins] | <code>boolean</code> | If true include margins in the return value. |
+
+<a name="select"></a>
+
+## select(selector, context) ⇒ <code>Array</code>
+**Kind**: global function  
+**Returns**: <code>Array</code> - Returns an array of elements matching the selector, or an empty array if no elements match.  
+**Descripton**: A wrapper around native dom element selection methods document.getElementById,document.querySelectorAll,document.getElementsByClassName and document.getElementsByTagName.  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| selector | <code>string</code> | A valid css selector |
+| context | <code>DomElement</code> | A DOM element to use as context |
 
 <a name="width"></a>
 
