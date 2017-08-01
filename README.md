@@ -70,16 +70,21 @@ let selectedDom = dom.select('.content');
 <dd></dd>
 <dt><a href="#create">create(html)</a> ⇒ <code>NodeList</code></dt>
 <dd></dd>
+<dt><a href="#empty">empty(elements)</a> ⇒ <code>Array.&lt;(Elements|null)&gt;</code></dt>
+<dd></dd>
 <dt><a href="#height">height(elements, [toHeight])</a> ⇒ <code>Number</code> | <code>undefined</code></dt>
 <dd></dd>
 <dt><a href="#outerHeight">outerHeight(elements, [margins])</a> ⇒ <code>Array</code></dt>
 <dd></dd>
 <dt><a href="#outerWidth">outerWidth(elements, [margins])</a> ⇒ <code>Array</code></dt>
 <dd></dd>
+<dt><a href="#remove">remove(elements)</a> ⇒ <code>Array.&lt;(Elements|null)&gt;</code></dt>
+<dd></dd>
 <dt><a href="#select">select(selector, context)</a> ⇒ <code>Array</code></dt>
 <dd></dd>
-<dt><a href="#width">width(elements, [toWidth])</a> ⇒ <code>Number</code> | <code>undefined</code></dt>
-<dd></dd>
+<dt><a href="#width">width(elements, [toWidth])</a> ⇒ <code>Number</code> | <code>Array.&lt;Number&gt;</code> | <code>undefined</code></dt>
+<dd><p><a href="https://github.com/jquery/jquery/issues/3193">https://github.com/jquery/jquery/issues/3193</a></p>
+</dd>
 </dl>
 
 <a name="append"></a>
@@ -100,6 +105,15 @@ let selectedDom = dom.select('.content');
 | Param | Type | Description |
 | --- | --- | --- |
 | html | <code>string</code> | A valid string of html |
+
+<a name="empty"></a>
+
+## empty(elements) ⇒ <code>Array.&lt;(Elements\|null)&gt;</code>
+**Kind**: global function  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| elements | <code>Element</code> \| <code>Array.&lt;Element&gt;</code> \| <code>NodeList</code> \| <code>HTMLCollection</code> | Elements to remove children from. |
 
 <a name="height"></a>
 
@@ -131,6 +145,15 @@ let selectedDom = dom.select('.content');
 | elements | <code>Array</code> | An element or an array of elements to get outerWidth from |
 | [margins] | <code>boolean</code> | If true include margins in the return value. |
 
+<a name="remove"></a>
+
+## remove(elements) ⇒ <code>Array.&lt;(Elements\|null)&gt;</code>
+**Kind**: global function  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| elements | <code>Element</code> \| <code>Array.&lt;Element&gt;</code> \| <code>NodeList</code> \| <code>HTMLCollection</code> | Elements to remove. |
+
 <a name="select"></a>
 
 ## select(selector, context) ⇒ <code>Array</code>
@@ -148,7 +171,9 @@ select
 
 <a name="width"></a>
 
-## width(elements, [toWidth]) ⇒ <code>Number</code> \| <code>undefined</code>
+## width(elements, [toWidth]) ⇒ <code>Number</code> \| <code>Array.&lt;Number&gt;</code> \| <code>undefined</code>
+https://github.com/jquery/jquery/issues/3193
+
 **Kind**: global function  
 
 | Param | Type | Description |
