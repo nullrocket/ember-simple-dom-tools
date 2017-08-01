@@ -136,7 +136,10 @@ let selectedDom = dom.select('.content');
 ## select(selector, context) ⇒ <code>Array</code>
 **Kind**: global function  
 **Returns**: <code>Array</code> - Returns an array of elements matching the selector, or an empty array if no elements match.  
-**Descripton**: A wrapper around native dom element selection methods document.getElementById,document.querySelectorAll,document.getElementsByClassName and document.getElementsByTagName.  
+**Descripton**: A wrapper around native dom element selection methods **document.getElementById**, **document.querySelectorAll**, **document.getElementsByClassName** and **document.getElementsByTagName**.
+```javascript
+select
+```  
 
 | Param | Type | Description |
 | --- | --- | --- |
