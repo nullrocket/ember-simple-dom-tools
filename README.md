@@ -76,7 +76,9 @@ let selectedDom = dom.select('.content');
 <dd></dd>
 <dt><a href="#outerWidth">outerWidth(elements, [margins])</a> ⇒ <code>Array</code></dt>
 <dd></dd>
-<dt><a href="#select">select(selector, context)</a> ⇒ <code>Array</code></dt>
+<dt><a href="#select
+A wrapper around native dom element selection methods document.getElementById,document.querySelectorAll,document.getElementsByClassName and document.getElementsByTagName.">select
+A wrapper around native dom element selection methods document.getElementById,document.querySelectorAll,document.getElementsByClassName and document.getElementsByTagName.(selector, context)</a> ⇒ <code>Array</code></dt>
 <dd></dd>
 <dt><a href="#width">width(elements, [toWidth])</a> ⇒ <code>Number</code> | <code>undefined</code></dt>
 <dd></dd>
@@ -131,10 +133,13 @@ let selectedDom = dom.select('.content');
 | elements | <code>Array</code> | An element or an array of elements to get outerWidth from |
 | [margins] | <code>boolean</code> | If true include margins in the return value. |
 
-<a name="select"></a>
+<a name="select
+A wrapper around native dom element selection methods document.getElementById,document.querySelectorAll,document.getElementsByClassName and document.getElementsByTagName."></a>
 
-## select(selector, context) ⇒ <code>Array</code>
+## select
+A wrapper around native dom element selection methods document.getElementById,document.querySelectorAll,document.getElementsByClassName and document.getElementsByTagName.(selector, context) ⇒ <code>Array</code>
 **Kind**: global function  
+**Returns**: <code>Array</code> - Returns an array of elements matching the selector, or an empty array if no elements match.  
 
 | Param | Type | Description |
 | --- | --- | --- |

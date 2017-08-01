@@ -65,6 +65,10 @@ function find( selector, context ) {
 /**
  * @module ember-simple-dom-tools
  * @function select
+ * A wrapper around native dom element selection methods document.getElementById,document.querySelectorAll,document.getElementsByClassName and document.getElementsByTagName.
+ *
+ *
+ *
  * @param {string} selector A valid css selector
  * @param {DomElement} context A DOM element to use as context
  * @returns {Array} Returns an array of elements matching the selector, or an empty array if no elements match.
