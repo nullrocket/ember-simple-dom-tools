@@ -1,4 +1,4 @@
-
+import getHeightOrWidth from './get-height-or-width'
 /**
  * @module ember-simple-dom-tools
  * @function height
@@ -6,18 +6,21 @@
  * @param {string} [toHeight]
  * @returns {Number|undefined}
  */
-export default function(elements,toHeight){
-  let height = toHeight ? toHeight :undefined;
+export default function height(elements,toHeight){
+  let heightx = toHeight ? toHeight :undefined;
     if ( elements ) {
       if ( Array.isArray(elements) || elements instanceof NodeList || elements instanceof HTMLCollection ) {
-        return height ?  elements[ 0 ].style.height = height :elements[ 0 ].getBoundingClientRect()[ "height" ];
+        let heights = [];
+        for(var i = 0;i < elements.length;i++) {
+          heights.push(height(elements[ i ]),heightx)
+        }
+        return heights;
+        //return width ?  elements[ 0 ].style.width = width :elements[ 0 ].getBoundingClientRect()[ "width" ];
       }
       else {
-        return height ?  elements.style.height = height : elements.getBoundingClientRect()[ "height" ];
+        return heightx ?  elements.style.height = heightx :getHeightOrWidth(elements, "height" );
+        //return height ?  elements.style.height = height : elements.getBoundingClientRect()[ "height" ];
       }
-    }
-    else {
-      return undefined;
     }
 
 

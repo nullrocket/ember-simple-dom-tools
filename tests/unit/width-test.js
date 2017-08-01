@@ -14,8 +14,7 @@ test("Get widths", function ( assert ) {
   let testDom = `
   <div id="first" style="width:200px"></div>`;
   append(create(testDom), fixture);
-  console.log(select('#first'))
-  console.log(width(select('#first'))[0]);
+
   assert.equal(width(select('#first'))[0],200, "Get width of single element");
 
 

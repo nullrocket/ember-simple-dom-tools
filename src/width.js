@@ -1,3 +1,4 @@
+import getHeightOrWidth from './get-height-or-width'
 /**
  * @module ember-simple-dom-tools
  * @function width
@@ -9,6 +10,7 @@
  * @returns {Number|Array<Number>|undefined}
  */
 export default function width(elements,toWidth){
+
   let widthx = toWidth ? toWidth : undefined;
     if ( elements ) {
       if ( Array.isArray(elements) || elements instanceof NodeList || elements instanceof HTMLCollection ) {
@@ -20,7 +22,12 @@ export default function width(elements,toWidth){
         //return width ?  elements[ 0 ].style.width = width :elements[ 0 ].getBoundingClientRect()[ "width" ];
       }
       else {
-        return widthx ?  elements.style.width = widthx : elements.getBoundingClientRect()[ "width" ];
+
+        return widthx ?  elements.style.width = widthx :getHeightOrWidth(elements, "width" );
+       //return widthx ?  elements.style.width = widthx :window.getComputedStyle(elements)[ "width" ];
+       // return widthx ?  elements.style.width = widthx : elements.getBoundingClientRect()[ "width" ];
       }
     }
 }
+
+
