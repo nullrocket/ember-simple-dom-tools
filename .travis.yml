@@ -1,15 +1,20 @@
----
-sudo: false
-dist: trusty
-addons:
-  chrome: stable
 
+---
 language: node_js
 node_js:
-  - "7"
+  - "6"
+
+dist: trusty
+sudo: false
+
+cache:
+  yarn: true
 
 env:
-  - EMBER_TRY_SCENARIO=default
+  - EMBER_TRY_SCENARIO=ember-1.13
+  # we recommend testing LTS's and latest stable release (bonus points to beta/canary)
+  - EMBER_TRY_SCENARIO=ember-lts-2.4
+  - EMBER_TRY_SCENARIO=ember-lts-2.8
   - EMBER_TRY_SCENARIO=ember-release
   - EMBER_TRY_SCENARIO=ember-beta
   - EMBER_TRY_SCENARIO=ember-canary
@@ -17,25 +22,18 @@ env:
 matrix:
   fast_finish: true
   allow_failures:
-    - env: EMBER_VERSION=release
-    - env: EMBER_VERSION=beta
-    - env: EMBER_VERSION=canary
+    - env: EMBER_TRY_SCENARIO=ember-canary
 
 before_install:
-    # setting the path for phantom.js 2.0.0
-    - export PATH=/usr/local/phantomjs-2.0.0/bin:$PATH
-    # starting a GUI to run tests, per https://docs.travis-ci.com/user/gui-and-headless-browsers/#Using-xvfb-to-Run-Tests-That-Require-a-GUI
-    - export DISPLAY=:99.0
-    - sh -e /etc/init.d/xvfb start
-    - "npm config set spin false"
-    - if [[ $(npm -v | cut -d '.' -f 1) -lt 3 ]]; then npm i -g npm@^3; fi
-    - if [[ $(npm -v | cut -d '.' -f 1) -gt 4 ]]; then npm i -g npm@^4; fi
+  - curl -o- -L https://yarnpkg.com/install.sh | bash
+  - export PATH=$HOME/.yarn/bin:$PATH
+  - yarn global add phantomjs-prebuilt
+  - phantomjs --version
 
 install:
-  - npm install
-  - bower install
+  - yarn install --no-lockfile
 
 script:
   # Usually, it's ok to finish the test scenario without reverting
   #  to the addon's original dependency state, skipping "cleanup".
-  - ember test --server
+  - node_modules/.bin/ember try:one $EMBER_TRY_SCENARIO test --skip-cleanup
