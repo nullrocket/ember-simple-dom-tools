@@ -1,73 +1,70 @@
+import {test} from 'ember-qunit';
+import {select, create, append} from 'ember-simple-dom-tools';
 
-import { test  } from 'ember-qunit';
-import {select,create,append} from 'ember-simple-dom-tools';
-
-test("select function exists", function(assert){
+test("select function exists", function ( assert ) {
   assert.ok(select);
-
-
 });
 
-test("ID Selection",function(assert){
-  assert.expect(14);
+test("ID Selection", function ( assert ) {
+  assert.expect(25);
   let fixture = document.getElementById('ember-testing');
+  let testDom = `
+    <ul id="first"></ul>
+    <div id="firstp">
+      <div id="simon1"></div>
+    </div>
+    <form id="台北Táiběi">
+      <div id="台北"></div>
+    </form>
+    <form>
+      <div id="foo:bar"></div>
+    </form>
+    <form>
+      <div id="test.foo[5]bar"></div>
+    </form>
+    <form id="form">
+      <div id="radio1"></div>
+    </form>
+    <div id="foo">
+      <div id="sndp"></div>
+      <div id="en"></div>
+      <div id="sap"></div>
+    </div>
+    <ul id="firstUL"></ul>
+    <a id="backslash\\foo"></a>
+    <form id="lengthtest">
+      <input name="id">
+    </form>
+    <div id="foobar"></div>
+    <div id="types_all"></div>
+    <div id="types-all"></div>
+    <div id="types+plus"></div>`;
+  append(create(testDom), fixture);
+  assert.equal(select('#ember-testing').length,1, "Selects a single element");
+  assert.equal(select('ul#first').length,1, "ID selector with element selector");
+  assert.equal(select('#firstp #simon1').length, 1, "ID selector with existing ID descendant");
+  assert.equal(select('#firstp #foobar').length, 0, "ID selector with non-existent ID descendant");
+  assert.equal(select('#台北Táiběi').length, 1, "ID selector using UTF8");
+  assert.equal(select('#台北Táiběi, #台北').length, 2, "ID selector using UTF8");
+  assert.equal(select('div #台北').length, 1, "Descendant ID selector using UTF8");
+  assert.equal(select('form > #台北').length, 1, "Child ID selector using UTF8");
+  assert.equal(select('#foo\\:bar').length, 1, "Escaped ID Selector");
+  assert.equal(select('#test\\.foo\\[5\\]bar').length, 1, "Escaped ID Selector");
+  assert.equal(select('div #foo\\:bar').length, 1, "Descendant Escaped ID Selector");
+  assert.equal(select('div #test\\.foo\\[5\\]bar').length, 1, "Descendant escaped ID");
+  assert.equal(select('form > #foo\\:bar').length, 1, "Child escaped ID");
+  assert.equal(select('form > #test\\.foo\\[5\\]bar').length, 1, "Child escaped ID");
+  assert.equal(select('#form > #radio1').length, 1, "ID Selector, child ID present");
+  assert.equal(select('#form > #first').length, 0, "ID Selector, not an ancestor ID");
+  assert.equal(select('#form > #option1a').length, 0, "ID Selector, not a child ID");
+  assert.equal(select('#foo > *').length, 3, "All Children of ID");
+  assert.equal(select('#firstUL > *').length, 0, "All Children of ID with no children");
+  assert.equal(select('#backslash\\\\foo').length, 1, "ID Selector contains backslash");
+  assert.equal(select('#lengthtest').length, 1, "ID Selector on Form with an input that has a name of 'id'");
+  assert.equal(select('#asdfasdf #foobar').length, 0, "ID selector with non-existent ancestor");
+  assert.equal(select('#types_all').length, 1, "ID selector with underscore characters in it");
+  assert.equal(select('#types-all').length, 1, "ID selector with dash characters in it");
+  assert.equal(select('#types\\+plus').length, 1, "ID selector with plus characters in it");
 
 
-  assert.ok(select('#ember-testing')[0] instanceof HTMLDivElement,"Selects a single element");
-  append(create('<ul id="first"></ul>'),fixture);
-  assert.ok(select('ul#first')[0] instanceof HTMLUListElement,"ID Selector w/ Element");
-  append(create('<div id="firstp"><div id="simon1"></div></div>'),fixture);
-  assert.equal(select('#firstp #simon1').length,1, "ID selector with existing ID descendant");
-  assert.equal(select('#firstp #foobar').length,0, "ID selector with non-existent ID descendant");
-  append(create('<form id="台北Táiběi"><div id="台北"></div></form>'),fixture);
-  assert.equal(select('#台北Táiběi').length,1, "ID selector using UTF8");
-
-  assert.equal(select('#台北Táiběi, #台北').length,2, "ID selector using UTF8");
-  assert.equal(select('div #台北').length,1, "Descendant ID selector using UTF8");
-  assert.equal(select('form > #台北').length,1, "Child ID selector using UTF8");
-  append(create('<form><div id="foo:bar"></div></form>'),fixture);
-  assert.equal(select('#foo\\:bar').length,1, "Escaped ID Selector");
-  append(create('<form><div id="test.foo[5]bar"></div></form>'),fixture);
-  assert.equal(select('#test\\.foo\\[5\\]bar').length,1, "Escaped ID Selector");
-  assert.equal(select('div #foo\\:bar').length,1, "Descendant Escaped ID Selector");
-  assert.equal(select('div #test\\.foo\\[5\\]bar').length,1, "Escaped ID Selector");
-  assert.equal(select('form > #foo\\:bar').length,1, "Escaped ID Selector");
-  assert.equal(select('form > #test\\.foo\\[5\\]bar').length,1, "Escaped ID Selector");
-  /*
-
-
- // assert.t( "ID Selector w/ Element", "ul#first", [] );
-  //assert.t( "ID selector with existing ID descendant", "#firstp #simon1", [ "simon1" ] );
-  //assert.t( "ID selector with non-existent descendant", "#firstp #foobar", [] );
-  //assert.t( "ID selector using UTF8", "#台北Táiběi", [ "台北Táiběi" ] );
-  //assert.t( "Multiple ID selectors using UTF8", "#台北Táiběi, #台北", [ "台北Táiběi", "台北" ] );
-  //assert.t( "Descendant ID selector using UTF8", "div #台北", [ "台北" ] );
- // assert.t( "Child ID selector using UTF8", "form > #台北", [ "台北" ] );
-
- // assert.t( "Escaped ID", "#foo\\:bar", [ "foo:bar" ] );
-  //assert.t( "Escaped ID", "#test\\.foo\\[5\\]bar", [ "test.foo[5]bar" ] );
-  //assert.t( "Descendant escaped ID", "div #foo\\:bar", [ "foo:bar" ] );
-  //assert.t( "Descendant escaped ID", "div #test\\.foo\\[5\\]bar", [ "test.foo[5]bar" ] );
- // assert.t( "Child escaped ID", "form > #foo\\:bar", [ "foo:bar" ] );
-  //assert.t( "Child escaped ID", "form > #test\\.foo\\[5\\]bar", [ "test.foo[5]bar" ] );
-
-  assert.t( "ID Selector, child ID present", "#form > #radio1", [ "radio1" ] ); // bug #267
-  assert.t( "ID Selector, not an ancestor ID", "#form #first", [] );
-  assert.t( "ID Selector, not a child ID", "#form > #option1a", [] );
-
-  assert.t( "All Children of ID", "#foo > *", [ "sndp", "en", "sap" ] );
-  assert.t( "All Children of ID with no children", "#firstUL > *", [] );
-
-  a = jQuery( "<a id='backslash\\foo'></a>" ).appendTo( "#qunit-fixture" );
-  assert.t( "ID Selector contains backslash", "#backslash\\\\foo", [ "backslash\\foo" ] );
-
-  assert.t( "ID Selector on Form with an input that has a name of 'id'", "#lengthtest", [ "lengthtest" ] );
-
-  assert.t( "ID selector with non-existent ancestor", "#asdfasdf #foobar", [] ); // bug #986
-
-  assert.t( "Underscore ID", "#types_all", [ "types_all" ] );
-  assert.t( "Dash ID", "#qunit-fixture", [ "qunit-fixture" ] );
-
-  assert.t( "ID with weird characters in it", "#name\\+value", [ "name+value" ] );
-*/
 });
