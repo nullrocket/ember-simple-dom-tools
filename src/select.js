@@ -57,7 +57,7 @@ function find( selector, context ) {
   catch ( e ) {
     return [];
   }
-  console.log(elems);
+
   return elems;
 }
 

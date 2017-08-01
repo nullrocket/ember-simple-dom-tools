@@ -1,7 +1,23 @@
 
 import { test  } from 'ember-qunit';
-import {width} from 'ember-simple-dom-tools';
+import {select, create, append,width,empty} from 'ember-simple-dom-tools';
 
-test("it exists", function(assert){
+test("width function exists", function(assert){
   assert.ok(width);
+});
+
+
+test("Get widths", function ( assert ) {
+
+  empty(document.getElementById('ember-testing'));
+  let fixture = document.getElementById('ember-testing');
+  let testDom = `
+  <div id="first" style="width:200px"></div>`;
+  append(create(testDom), fixture);
+  console.log(select('#first'))
+  console.log(width(select('#first'))[0]);
+  assert.equal(width(select('#first'))[0],200, "Get width of single element");
+
+
+
 });

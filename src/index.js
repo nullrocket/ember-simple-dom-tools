@@ -5,6 +5,8 @@ import outerHeight from './outer-height';
 import outerWidth from './outer-width';
 import select from './select';
 import width from './width';
+import remove from './remove';
+import empty from './empty';
 
 export default  {
   append,
@@ -13,7 +15,9 @@ export default  {
   outerHeight,
   outerWidth,
   select,
-  width
+  width,
+  remove,
+  empty
 };
 
 
@@ -25,3 +29,5 @@ export {outerHeight};
 export {outerWidth};
 export {select};
 export  {width};
+export {remove};
+export {empty};
