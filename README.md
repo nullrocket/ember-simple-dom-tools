@@ -6,7 +6,6 @@
 [travis-badge-url]: https://travis-ci.org/nullrocket/ember-simple-dom-tools
 
 
-
 Absolutely untested and highly experimental.  Actually useless for the moment.
 
 ember-simple-dom-tools is a collection of dom utilities as an alternative to jQuery.
@@ -80,7 +79,12 @@ let selectedDom = dom.select('.content');
 <dt><a href="#empty">empty(elements)</a> ⇒ <code>Array.&lt;(Elements|null)&gt;</code></dt>
 <dd></dd>
 <dt><a href="#height">height(elements, [toHeight])</a> ⇒ <code>Number</code> | <code>undefined</code></dt>
-<dd></dd>
+<dd><p>Get the current computed height for each elements passed into <strong>elements</strong> or set the height of each element passed into <strong>elements</strong></p>
+<pre><code class="lang-javascript">import {height,select} from &#39;ember-simple-dom-tools&#39;;
+let contentDom = select(&#39;.content&#39;);
+height(contentDom,&#39;500px&#39;);
+</code></pre>
+</dd>
 <dt><a href="#outerHeight">outerHeight(elements, [margins])</a> ⇒ <code>Array</code></dt>
 <dd></dd>
 <dt><a href="#outerWidth">outerWidth(elements, [margins])</a> ⇒ <code>Array</code></dt>
@@ -125,6 +129,13 @@ let selectedDom = dom.select('.content');
 <a name="height"></a>
 
 ## height(elements, [toHeight]) ⇒ <code>Number</code> \| <code>undefined</code>
+Get the current computed height for each elements passed into **elements** or set the height of each element passed into **elements**
+```javascript
+import {height,select} from 'ember-simple-dom-tools';
+let contentDom = select('.content');
+height(contentDom,'500px');
+```
+
 **Kind**: global function  
 
 | Param | Type |

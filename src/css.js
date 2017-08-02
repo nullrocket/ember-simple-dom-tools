@@ -2,8 +2,8 @@ let core_pnum = /[+-]?(?:\d*\.|)\d+(?:[eE][+-]?\d+|)/.source;
 let rmargin = /^margin/;
 let rcustomProp = /^--/
 let rnumsplit = new RegExp("^(" + core_pnum + ")(.*)$", "i");
-export var rnumnonpx = new RegExp("^(" + core_pnum + ")(?!px)[a-z%]+$", "i");
 let rrelNum = new RegExp("^([+-])=(" + core_pnum + ")", "i");
+export var rnumnonpx = new RegExp("^(" + core_pnum + ")(?!px)[a-z%]+$", "i");
 
 
 // Exclude the following css properties to add px
@@ -25,21 +25,21 @@ let div = document.createElement('div');
 // Swappable if display is none or starts with table
 // except "table", "table-cell", or "table-caption"
 // See here for display values: https://developer.mozilla.org/en-US/docs/CSS/display
-let  rdisplayswap = /^(none|table(?!-c[ea]).+)/;
+let rdisplayswap = /^(none|table(?!-c[ea]).+)/;
 
-let  cssShow = {
+let cssShow = {
   position: "absolute",
   visibility: "hidden",
   display: "block"
 };
-let  cssNormalTransform = {
+let cssNormalTransform = {
   letterSpacing: "0",
   fontWeight: "400"
 };
 
-let  cssPrefixes = [ "Webkit", "Moz", "ms" ];
+let cssPrefixes = [ "Webkit", "Moz", "ms" ];
 
-let  emptyStyle = div.style;
+let emptyStyle = div.style;
 let cssFloat = !!document.createElement('a').style.cssFloat;
 let clearCloneStyle = div.style.backgroundClip === "content-box";
 
@@ -133,6 +133,12 @@ function fcamelCase( all, letter ) {
 function camelCase( string ) {
   return string.replace(rmsPrefix, "ms-").replace(rdashAlpha, fcamelCase);
 };
+
+
+
+
+
+
 
 function adjustCSS( elem, prop, valueParts, tween ) {
   var adjusted,
@@ -275,6 +281,12 @@ export function style( elem, name, value, extra ) {
   }
 }
 
+
+
+
+
+
+
 export function css( elem, name, extra, styles ) {
   var val, num, hooks,
     origName = camelCase(name),
@@ -316,10 +328,13 @@ export function css( elem, name, extra, styles ) {
 
 
 var pixelPositionVal;
-export var  boxSizingReliableVal;
-  var scrollboxSizeVal, pixelMarginRightVal,
-  reliableMarginLeftVal,
-  container = document.createElement("div");//,
+let scrollboxSizeVal;
+let pixelMarginRightVal;
+let reliableMarginLeftVal;
+let container = document.createElement("div");//,
+export var boxSizingReliableVal;
+
+
 // div = document.createElement("div");
 
 
