@@ -1,9 +1,11 @@
 import getHeightOrWidth from './get-height-or-width'
+
 /**
  * @module ember-simple-dom-tools
  * @function height
  *
- * @description Get the current computed height for each elements passed into **elements** or set the height of each element passed into **elements**.
+ * @sometext
+ * Get the current computed height for each elements passed into **elements** or set the height of each element passed into **elements**
  *
  *
  * ```javascript
@@ -15,9 +17,7 @@ import getHeightOrWidth from './get-height-or-width'
  * @param {DomElement|NodeList|HTMLCollection|Array} elements
  * @param {string} [toHeight]
  * @returns {Number|undefined}
- *
- *
- * */
+ */
 export default function height(elements,toHeight){
   let heightx = toHeight ? toHeight :undefined;
     if ( elements ) {

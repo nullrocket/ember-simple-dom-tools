@@ -65,8 +65,7 @@ function find( selector, context ) {
 /**
  * @module ember-simple-dom-tools
  * @function select
- *
- * @descripton
+ * @sometext
  * A wrapper around native dom element selection methods **document.getElementById**, **document.querySelectorAll**, **document.getElementsByClassName** and **document.getElementsByTagName**.
  * ```javascript
  * select
