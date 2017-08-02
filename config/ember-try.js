@@ -2,7 +2,7 @@
 module.exports = {
   scenarios: [
     {
-      name: 'ember-lts-2.4',
+      name: 'ember-lts-2-4',
       bower: {
         dependencies: {
           'ember': 'components/ember#lts-2-4'
@@ -18,7 +18,7 @@ module.exports = {
       }
     },
     {
-      name: 'ember-lts-2.8',
+      name: 'ember-lts-2-8',
       bower: {
         dependencies: {
           'ember': 'components/ember#lts-2-8'
