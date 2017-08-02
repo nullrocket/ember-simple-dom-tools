@@ -79,7 +79,7 @@ let selectedDom = dom.select('.content');
 <dt><a href="#empty">empty(elements)</a> ⇒ <code>Array.&lt;(Elements|null)&gt;</code></dt>
 <dd></dd>
 <dt><a href="#height">height(elements, [toHeight])</a> ⇒ <code>Number</code> | <code>undefined</code></dt>
-<dd><p>Get the current computed height for each elements passed into <strong>elements</strong> or set the height of each element passed into <strong>elements</strong></p>
+<dd><p>Get the current computed height for each elements passed into <strong>elements</strong> or set the height of each element passed into <strong>elements</strong>.</p>
 <pre><code class="lang-javascript">import {height,select} from &#39;ember-simple-dom-tools&#39;;
 let contentDom = select(&#39;.content&#39;);
 height(contentDom,&#39;500px&#39;);
@@ -129,7 +129,9 @@ height(contentDom,&#39;500px&#39;);
 <a name="height"></a>
 
 ## height(elements, [toHeight]) ⇒ <code>Number</code> \| <code>undefined</code>
-Get the current computed height for each elements passed into **elements** or set the height of each element passed into **elements**
+Get the current computed height for each elements passed into **elements** or set the height of each element passed into **elements**.
+
+
 ```javascript
 import {height,select} from 'ember-simple-dom-tools';
 let contentDom = select('.content');
