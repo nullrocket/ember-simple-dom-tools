@@ -2,10 +2,9 @@
 ===
 [![TravisCI Build Status][travis-badge]][travis-badge-url]
 
-[travis-badge]: https://img.shields.io/travis/ember-cli/ember-cli/master.svg?label=TravisCI
-[travis-badge-url]: https://travis-ci.org/ember-cli/ember-cli
-
-
+[travis-badge]: hhttps://travis-ci.org/nullrocket/ember-simple-dom-tools.svg?branch=master
+[travis-badge-url]: https://travis-ci.org/nullrocket/ember-simple-dom-tools
+---
 Absolutely untested and highly experimental.  Actually useless for the moment.
 
 ember-simple-dom-tools is a collection of dom utilities as an alternative to jQuery.
