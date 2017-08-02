@@ -2,6 +2,7 @@ import getHeightOrWidth from './get-height-or-width'
 /**
  * @module ember-simple-dom-tools
  * @function height
+ *
  * @description Get the current computed height for each elements passed into **elements** or set the height of each element passed into **elements**.
  *
  *
