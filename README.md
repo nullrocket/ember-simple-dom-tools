@@ -3,7 +3,7 @@
 
 [![TravisCI Build Status][travis-badge]][travis-badge-url]
 
-[travis-badge]: hhttps://travis-ci.org/nullrocket/ember-simple-dom-tools.svg?branch=master
+[travis-badge]: https://travis-ci.org/nullrocket/ember-simple-dom-tools.svg?branch=master
 [travis-badge-url]: https://travis-ci.org/nullrocket/ember-simple-dom-tools
 
 ---
