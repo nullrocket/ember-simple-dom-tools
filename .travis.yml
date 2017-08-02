@@ -18,16 +18,15 @@ env:
   - EMBER_TRY_SCENARIO=ember-release
   - EMBER_TRY_SCENARIO=ember-beta
   - EMBER_TRY_SCENARIO=ember-canary
-  - EMBER_TRY_SCENARIO=ember-default
+  - EMBER_TRY_SCENARIO=default
 
 matrix:
   fast_finish: true
   allow_failures:
     - env: EMBER_TRY_SCENARIO=ember-canary
-    - env: EMBER_TRY_SCENARIO=ember-1.13
     # we recommend testing LTS's and latest stable release (bonus points to beta/canary)
-    - env: EMBER_TRY_SCENARIO=ember-lts-2-4
-    - env: EMBER_TRY_SCENARIO=ember-lts-2-8
+    - env: EMBER_TRY_SCENARIO=ember-lts-2.8
+    - env: EMBER_TRY_SCENARIO=ember-lts-2.12
 
 before_install:
   - curl -o- -L https://yarnpkg.com/install.sh | bash
