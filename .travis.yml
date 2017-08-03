@@ -25,8 +25,7 @@ matrix:
   allow_failures:
     - env: EMBER_TRY_SCENARIO=ember-canary
     # we recommend testing LTS's and latest stable release (bonus points to beta/canary)
-    - env: EMBER_TRY_SCENARIO=ember-lts-2.8
-    - env: EMBER_TRY_SCENARIO=ember-lts-2.12
+
 
 before_install:
   - curl -o- -L https://yarnpkg.com/install.sh | bash

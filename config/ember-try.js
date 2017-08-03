@@ -23,7 +23,7 @@ module.exports = {
           'ember': 'components/ember#lts-2-12'
         },
         resolutions: {
-          'ember': 'lts-2-8'
+          'ember': 'lts-2-12'
         }
       },
       npm: {
