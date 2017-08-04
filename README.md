@@ -10,6 +10,9 @@ Absolutely untested and highly experimental.  Actually useless for the moment.
 
 ember-simple-dom-tools is a collection of dom utilities as an alternative to jQuery.
 
+## API Design summary
+
+
 ## Use
 
 Install  addon
@@ -79,7 +82,12 @@ let selectedDom = dom.select('.content');
 <dt><a href="#empty">empty(elements)</a> ⇒ <code>Array.&lt;(Elements|null)&gt;</code></dt>
 <dd></dd>
 <dt><a href="#height">height(elements, [toHeight])</a> ⇒ <code>Number</code> | <code>undefined</code></dt>
-<dd></dd>
+<dd><p>Get the current computed height for each elements passed into <strong>elements</strong> or set the height of each element passed into <strong>elements</strong></p>
+<pre><code class="lang-javascript">import {height,select} from &#39;ember-simple-dom-tools&#39;;
+let contentDom = select(&#39;.content&#39;);
+height(contentDom,&#39;500px&#39;); // 500px
+</code></pre>
+</dd>
 <dt><a href="#outerHeight">outerHeight(elements, [margins])</a> ⇒ <code>Array</code></dt>
 <dd></dd>
 <dt><a href="#outerWidth">outerWidth(elements, [margins])</a> ⇒ <code>Array</code></dt>
@@ -124,20 +132,25 @@ let selectedDom = dom.select('.content');
 <a name="height"></a>
 
 ## height(elements, [toHeight]) ⇒ <code>Number</code> \| <code>undefined</code>
-**Kind**: global function  
-**Sometext**: Get the current computed height for each elements passed into **elements** or set the height of each element passed into **elements**
+Get the current computed height for each elements passed into **elements** or set the height of each element passed into **elements**
+
+
+
 
 
 ```javascript
 import {height,select} from 'ember-simple-dom-tools';
 let contentDom = select('.content');
-height(contentDom,'500px');
-```  
+height(contentDom,'500px'); // 500px
+```
 
-| Param | Type |
-| --- | --- |
-| elements | <code>DomElement</code> \| <code>NodeList</code> \| <code>HTMLCollection</code> \| <code>Array</code> | 
-| [toHeight] | <code>string</code> | 
+**Kind**: global function  
+**Returns**: <code>Number</code> \| <code>undefined</code> - value is in px  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| elements | <code>DomElement</code> \| <code>NodeList</code> \| <code>HTMLCollection</code> \| <code>Array</code> |  |
+| [toHeight] | <code>string</code> \| <code>integer</code> | The toHeight param can be either a number or a string. |
 
 <a name="outerHeight"></a>
 

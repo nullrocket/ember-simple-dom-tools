@@ -1,4 +1,4 @@
-import {getStyles,curCSS,rnumnonpx,boxSizingReliableVal,boxModelAdjustment,css} from './css';
+import {getStyles, curCSS, rnumnonpx, boxSizingReliableVal, boxModelAdjustment, css} from './css';
 
 /*
 
@@ -8,7 +8,7 @@ function _getWidthOrHeight( elem, dimension, extra ) {
 
   // Start with computed style
   var styles = getStyles(elem);
-  var val =  curCSS(elem, dimension, styles);
+  var val = curCSS(elem, dimension, styles);
   var isBorderBox = css(elem, "boxSizing", false, styles) === "border-box";
   var valueIsBorderBox = isBorderBox;
 
@@ -53,19 +53,53 @@ function _getWidthOrHeight( elem, dimension, extra ) {
   ) /*+ "px"*/;
 }
 
+/*
+ * @module ember-simple-dom-tools
+ * @function getWidthOrHeight
+ *
+ * Creates a width or a height function
+ *
+ *
+ *
+ * ```
+ *
+ * @param {DomElement|NodeList|HTMLCollection|Array} elements
+ * @param {string} [toHeight]
+ * @returns {Number|undefined}
+ */
+export default function getWidthOrHeight( dimension ) {
+  console.log(dimension);
+  return function _dimension( elements, toDimension ) {
+    let newDimension;
+    if ( typeof toDimension == 'number' && Number.isFinite(toDimension) ) {
+      newDimension = Math.round(toDimension);
+    }
 
-export default function getWidthOrHeight(dimension ) {
-  return function _dimension(elements,toDimension) {
+    if ( typeof toDimension == 'string' && /^[+-]?[0-9]+.?([0-9]+)?(px|em|ex|%|in|cm|mm|pt|pc|ch|rem|vw|vh|vmin|vmas)$/.test(toDimension) ) {
+      let unit = toDimension.match(/\D+$/)[ 0 ];
+      if ( unit === 'px' ) {
+        newDimension = Math.round(parseFloat(toDimension)) + "px";
+      }
+      else {
+        newDimension = toDimension;
+      }
+    }
+
     if ( elements ) {
       if ( Array.isArray(elements) || elements instanceof NodeList || elements instanceof HTMLCollection ) {
         let dimensions = [];
         for ( var i = 0; i < elements.length; i++ ) {
-          dimensions.push(_dimension(elements[ i ], toDimension))
+          dimensions.push(_dimension(elements[ i ], newDimension))
         }
-        return dimensions[ 0 ];
+        return (newDimension || dimensions.length <= 1) ? dimensions[ 0 ] : dimensions;
+
       }
       else {
-        return toDimension ? parseFloat(elements.style.height = toDimension) : _getWidthOrHeight(elements, dimension);
+        if ( newDimension ) {
+          elements.style.height = newDimension;
+        }
+
+        return newDimension ? parseFloat(elements.style.height) : _getWidthOrHeight(elements, dimension);
       }
     }
   }
