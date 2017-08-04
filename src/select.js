@@ -42,7 +42,7 @@ The latest W3C specification says elements is an HTMLCollection; however, this m
 function find( selector, context ) {
   context = context || document;
   let elems;
-  console.log(selector/*,context.querySelectorAll(selector.replace(/([.:+~#> ])/g,"\$1") )*/);
+  //console.log(selector/*,context.querySelectorAll(selector.replace(/([.:+~#> ])/g,"\$1") )*/);
   try {
     elems = (
       classMatch.test(selector) ?
@@ -91,10 +91,10 @@ export default function ( selector, context ) {
     }
     else {
 
-     return  find(selector, context)
+     return   [].concat.apply([], find(selector, context));
     }
 
   }
-  return elems ? elems : [];
+  return elems ? [].concat.apply([],elems) : [];
 
 }

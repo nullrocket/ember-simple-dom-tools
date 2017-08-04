@@ -12,11 +12,12 @@ test("Get widths", function ( assert ) {
   empty(document.getElementById('ember-testing'));
   let fixture = document.getElementById('ember-testing');
   let testDom = `
-  <div id="first" style="width:200px"></div>`;
+  <div id="first" style="width:200px"></div>
+`;
   append(create(testDom), fixture);
-
-  assert.equal(width(select('#first'))[0],200, "Get width of single element");
-
+    //console.log('select',select('#first'));
+ // console.log(width(select('#first')));
+  assert.strictEqual(width(select('#first')),200, "Get width of single element");
 
 
 });

@@ -9,7 +9,7 @@ test("width function exists", function(assert){
 });
 
 
-test("Get widths", function ( assert ) {
+test("CSS", function ( assert ) {
 
   empty(document.getElementById('ember-testing'));
   let fixture = document.getElementById('ember-testing');
@@ -18,7 +18,7 @@ test("Get widths", function ( assert ) {
   append(create(testDom), fixture);
   style(select('#first')[0],'background','blue');
 
-  assert.equal(style(select('#first')[0],'background'),'blue', "Get width of single element");
+  assert.equal(style(select('#first')[0],'background'),'blue', "Get background");
 
 
 

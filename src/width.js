@@ -11,19 +11,18 @@ import getHeightOrWidth from './get-height-or-width'
  */
 export default function width(elements,toWidth){
 
-  let widthx = toWidth ? toWidth : undefined;
     if ( elements ) {
       if ( Array.isArray(elements) || elements instanceof NodeList || elements instanceof HTMLCollection ) {
         let widths = [];
         for(var i = 0;i < elements.length;i++) {
-          widths.push(width(elements[ i ]),widthx)
+          widths.push(width(elements[ i ]),toWidth)
         }
-        return widths;
+        return widths[0];
         //return width ?  elements[ 0 ].style.width = width :elements[ 0 ].getBoundingClientRect()[ "width" ];
       }
       else {
 
-        return widthx ?  elements.style.width = widthx :getHeightOrWidth(elements, "width" );
+        return toWidth ?  elements.style.width = toWidth :getHeightOrWidth(elements, "width" );
        //return widthx ?  elements.style.width = widthx :window.getComputedStyle(elements)[ "width" ];
        // return widthx ?  elements.style.width = widthx : elements.getBoundingClientRect()[ "width" ];
       }

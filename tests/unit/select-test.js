@@ -40,6 +40,7 @@ test("ID Selection", function ( assert ) {
     <div id="types-all"></div>
     <div id="types+plus"></div>`;
   append(create(testDom), fixture);
+  //console.log(select('#ember-testing'));
   assert.equal(select('#ember-testing').length,1, "Selects a single element");
   assert.equal(select('ul#first').length,1, "ID selector with element selector");
   assert.equal(select('#firstp #simon1').length, 1, "ID selector with existing ID descendant");

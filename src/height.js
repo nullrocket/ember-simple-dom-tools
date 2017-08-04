@@ -19,19 +19,24 @@ import getHeightOrWidth from './get-height-or-width'
  * @returns {Number|undefined}
  */
 export default function height(elements,toHeight){
-  let heightx = toHeight ? toHeight :undefined;
+
+ // let heightx = toHeight ? toHeight :undefined;
     if ( elements ) {
+
       if ( Array.isArray(elements) || elements instanceof NodeList || elements instanceof HTMLCollection ) {
+
         let heights = [];
         for(var i = 0;i < elements.length;i++) {
-          heights.push(height(elements[ i ]),heightx)
+          heights.push(height(elements[ i ],toHeight))
         }
-        return heights;
+        return heights[0];
         //return width ?  elements[ 0 ].style.width = width :elements[ 0 ].getBoundingClientRect()[ "width" ];
       }
       else {
-        return heightx ?  elements.style.height = heightx :getHeightOrWidth(elements, "height" );
-        //return height ?  elements.style.height = height : elements.getBoundingClientRect()[ "height" ];
+
+
+        return toHeight ?  parseFloat(elements.style.height = toHeight) : getHeightOrWidth(elements, "height" );
+    //   return toHeight ?  parseFloat(elements.style.height = toHeight) : elements.getBoundingClientRect()[ "height" ];
       }
     }
 

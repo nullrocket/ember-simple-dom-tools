@@ -8,7 +8,8 @@ export default function getWidthOrHeight( elem, dimension, extra ) {
 
   // Start with computed style
   var styles = getStyles(elem);
-  var val = curCSS(elem, dimension, styles);
+  var val =  curCSS(elem, dimension, styles);
+  console.log("val",val);
   var isBorderBox = css(elem, "boxSizing", false, styles) === "border-box";
   var valueIsBorderBox = isBorderBox;
 

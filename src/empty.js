@@ -18,10 +18,10 @@ export default function empty(elements){
       //return width ?  elements[ 0 ].style.width = width :elements[ 0 ].getBoundingClientRect()[ "width" ];
     }
     else {
-        console.log('elements',elements);
+     //   console.log('elements',elements);
          elements.innerHTML = '';
 
-      console.log('elements',elements.innerHTML);
+   //   console.log('elements',elements.innerHTML);
     }
   }
 }
