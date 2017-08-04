@@ -16,10 +16,9 @@ test("Height Tests", function ( assert ) {
     `;
   append(create(testDom), fixture);
 
-  console.log(select('#first'));
-  assert.equal(height(select('#first')),200, "Get height of single element");
- // assert.equal(height(select('#first'),'300px'),300, "Get height of single element");
+  assert.strictEqual(height(select('#first')),200, "Get height of single element");
+  assert.strictEqual(height(select('#first'),'300px'),300, "Get height of single element");
 
-//  assert.strictEqual(height(select('#first')),300, "Check changed height");
-  //console.log(height(select('#first')));
+  assert.strictEqual(height(select('#first')),300, "Check changed height");
+
 });

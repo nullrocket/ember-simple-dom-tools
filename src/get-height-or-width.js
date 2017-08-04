@@ -4,12 +4,11 @@ import {getStyles,curCSS,rnumnonpx,boxSizingReliableVal,boxModelAdjustment,css} 
 
 https://github.com/jquery/jquery/pull/3561
  */
-export default function getWidthOrHeight( elem, dimension, extra ) {
+function _getWidthOrHeight( elem, dimension, extra ) {
 
   // Start with computed style
   var styles = getStyles(elem);
   var val =  curCSS(elem, dimension, styles);
-  console.log("val",val);
   var isBorderBox = css(elem, "boxSizing", false, styles) === "border-box";
   var valueIsBorderBox = isBorderBox;
 
@@ -52,4 +51,22 @@ export default function getWidthOrHeight( elem, dimension, extra ) {
       val
     )
   ) /*+ "px"*/;
+}
+
+
+export default function getWidthOrHeight(dimension ) {
+  return function _dimension(elements,toDimension) {
+    if ( elements ) {
+      if ( Array.isArray(elements) || elements instanceof NodeList || elements instanceof HTMLCollection ) {
+        let dimensions = [];
+        for ( var i = 0; i < elements.length; i++ ) {
+          dimensions.push(_dimension(elements[ i ], toDimension))
+        }
+        return dimensions[ 0 ];
+      }
+      else {
+        return toDimension ? parseFloat(elements.style.height = toDimension) : _getWidthOrHeight(elements, dimension);
+      }
+    }
+  }
 }
