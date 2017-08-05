@@ -19,9 +19,11 @@ import getWidthOrHeight from './get-height-or-width'
  * ```
  *
  *
- *  * When called with multiple **elements** argument **height** will return an Array<number> of height in **px** units.
+ * When called with multiple **elements** argument **height** will return an Array<number> of height in **px** units.
  * ```html
- * <p class=".intro" style="height:500px" ></p><p class=".intro" style="height:500px" ></p><p class=".intro" style="height:500px" ></p>
+ * <p class=".intro" style="height:500px" >
+ * </p><p class=".intro" style="height:500px" ></p>
+ * <p class=".intro" style="height:500px" ></p>
  * ```
  * ```javascript
  * import {height,select} from 'ember-simple-dom-tools';
@@ -29,7 +31,7 @@ import getWidthOrHeight from './get-height-or-width'
  * height(paragraphDom); // 500px
  * ```
  *
- * @param {DomElement|NodeList|HTMLCollection|Array} A DomElement or an array of DomElements.
+ * @param {DomElement|NodeList|HTMLCollection|Array} elements A DomElement or an array of DomElements.
  * @param {string|integer} [toHeight]  The toHeight param can be either a number or a string, if you wish to specify units you must pass a string.
  * @returns {Number|Array<Number>|undefined} Either a length in px or an array of lengths.
  */
