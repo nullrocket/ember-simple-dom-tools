@@ -46,8 +46,10 @@ You can import the entire library on a single namespace
 ```js
 import dom from 'ember-dom-simple-tools';
 
+
 let selectedDom = dom.select('.content');
 ```
+
 
 
 ## Installation
@@ -73,7 +75,6 @@ let selectedDom = dom.select('.content');
 
     For more information on using ember-cli, visit [https://ember-cli.com/](https://ember-cli.com/).
 ## Functions
-
 <dl>
 <dt><a href="#append">append(elements, destination)</a> ⇒ <code>Array</code> | <code>undefined</code></dt>
 <dd></dd>
@@ -81,12 +82,8 @@ let selectedDom = dom.select('.content');
 <dd></dd>
 <dt><a href="#empty">empty(elements)</a> ⇒ <code>Array.&lt;(Elements|null)&gt;</code></dt>
 <dd></dd>
-<dt><a href="#height">height(elements, [toHeight])</a> ⇒ <code>Number</code> | <code>undefined</code></dt>
-<dd><p>Get the current computed height for each elements passed into <strong>elements</strong> or set the height of each element passed into <strong>elements</strong></p>
-<pre><code class="lang-javascript">import {height,select} from &#39;ember-simple-dom-tools&#39;;
-let contentDom = select(&#39;.content&#39;);
-height(contentDom,&#39;500px&#39;); // 500px
-</code></pre>
+<dt><a href="#height">height(elements, [toHeight])</a> ⇒ <code>Number</code> | <code>Array.&lt;Number&gt;</code> | <code>undefined</code></dt>
+<dd><p>Get the current height for each elements passed into <strong>elements</strong> or set the height of each element passed into <strong>elements</strong></p>
 </dd>
 <dt><a href="#outerHeight">outerHeight(elements, [margins])</a> ⇒ <code>Array</code></dt>
 <dd></dd>
@@ -97,10 +94,8 @@ height(contentDom,&#39;500px&#39;); // 500px
 <dt><a href="#select">select(selector, context)</a> ⇒ <code>Array</code></dt>
 <dd></dd>
 <dt><a href="#width">width(elements, [toWidth])</a> ⇒ <code>Number</code> | <code>Array.&lt;Number&gt;</code> | <code>undefined</code></dt>
-<dd><p><a href="https://github.com/jquery/jquery/issues/3193">https://github.com/jquery/jquery/issues/3193</a></p>
-</dd>
+<dd></dd>
 </dl>
-
 <a name="append"></a>
 
 ## append(elements, destination) ⇒ <code>Array</code> \| <code>undefined</code>
@@ -131,26 +126,24 @@ height(contentDom,&#39;500px&#39;); // 500px
 
 <a name="height"></a>
 
-## height(elements, [toHeight]) ⇒ <code>Number</code> \| <code>undefined</code>
-Get the current computed height for each elements passed into **elements** or set the height of each element passed into **elements**
-
-
-
-
-
-```javascript
-import {height,select} from 'ember-simple-dom-tools';
-let contentDom = select('.content');
-height(contentDom,'500px'); // 500px
-```
-
+## height(elements, [toHeight]) ⇒ <code>Number</code> \| <code>Array.&lt;Number&gt;</code> \| <code>undefined</code>
 **Kind**: global function  
-**Returns**: <code>Number</code> \| <code>undefined</code> - value is in px  
+**Summary**: Get the current height for each elements passed into **elements** or set the height of each element passed into **elements**  
 
 | Param | Type | Description |
 | --- | --- | --- |
 | elements | <code>DomElement</code> \| <code>NodeList</code> \| <code>HTMLCollection</code> \| <code>Array</code> |  |
 | [toHeight] | <code>string</code> \| <code>integer</code> | The toHeight param can be either a number or a string. |
+
+**Returns**: <code>Number</code> \| <code>Array.&lt;Number&gt;</code> \| <code>undefined</code> - return is in px  
+```javascript
+import {height,select} from 'ember-simple-dom-tools';
+let contentDom = select('.content');
+height(contentDom); // 500px
+
+height(contentDom,'200px'); // 200px
+
+```
 
 <a name="outerHeight"></a>
 
@@ -185,27 +178,27 @@ height(contentDom,'500px'); // 500px
 
 ## select(selector, context) ⇒ <code>Array</code>
 **Kind**: global function  
-**Returns**: <code>Array</code> - Returns an array of elements matching the selector, or an empty array if no elements match.  
-**Sometext**: A wrapper around native dom element selection methods **document.getElementById**, **document.querySelectorAll**, **document.getElementsByClassName** and **document.getElementsByTagName**.
-```javascript
-select
-```  
 
 | Param | Type | Description |
 | --- | --- | --- |
 | selector | <code>string</code> | A valid css selector |
 | context | <code>DomElement</code> | A DOM element to use as context |
 
+**Returns**: <code>Array</code> - Returns an array of elements matching the selector, or an empty array if no elements match.  
+**Sometext**: A wrapper around native dom element selection methods **document.getElementById**, **document.querySelectorAll**, **document.getElementsByClassName** and **document.getElementsByTagName**.
+```javascript
+select
+```  
 <a name="width"></a>
 
 ## width(elements, [toWidth]) ⇒ <code>Number</code> \| <code>Array.&lt;Number&gt;</code> \| <code>undefined</code>
-https://github.com/jquery/jquery/issues/3193
-
 **Kind**: global function  
 
 | Param | Type | Description |
 | --- | --- | --- |
 | elements | <code>Element</code> \| <code>Array.&lt;Element&gt;</code> \| <code>NodeList</code> \| <code>HTMLCollection</code> | Elements to get the width of. |
 | [toWidth] | <code>string</code> | If supplied will set the width of the passed elements. |
+
+https://github.com/jquery/jquery/issues/3193
 
 
