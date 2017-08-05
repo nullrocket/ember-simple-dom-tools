@@ -82,7 +82,7 @@ let selectedDom = dom.select('.content');
 <dd></dd>
 <dt><a href="#empty">empty(elements)</a> ⇒ <code>Array.&lt;(Elements|null)&gt;</code></dt>
 <dd></dd>
-<dt><a href="#height">height(elements, [toHeight])</a> ⇒ <code>Number</code> | <code>Array.&lt;Number&gt;</code> | <code>undefined</code></dt>
+<dt><a href="#height">height(A, [toHeight])</a> ⇒ <code>Number</code> | <code>Array.&lt;Number&gt;</code> | <code>undefined</code></dt>
 <dd><p>Get the current height for each elements passed into <strong>elements</strong> or set the height of each element passed into <strong>elements</strong></p>
 </dd>
 <dt><a href="#outerHeight">outerHeight(elements, [margins])</a> ⇒ <code>Array</code></dt>
@@ -126,23 +126,35 @@ let selectedDom = dom.select('.content');
 
 <a name="height"></a>
 
-## height(elements, [toHeight]) ⇒ <code>Number</code> \| <code>Array.&lt;Number&gt;</code> \| <code>undefined</code>
+## height(A, [toHeight]) ⇒ <code>Number</code> \| <code>Array.&lt;Number&gt;</code> \| <code>undefined</code>
 **Kind**: global function  
 **Summary**: Get the current height for each elements passed into **elements** or set the height of each element passed into **elements**  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| elements | <code>DomElement</code> \| <code>NodeList</code> \| <code>HTMLCollection</code> \| <code>Array</code> |  |
-| [toHeight] | <code>string</code> \| <code>integer</code> | The toHeight param can be either a number or a string. |
+| A | <code>DomElement</code> \| <code>NodeList</code> \| <code>HTMLCollection</code> \| <code>Array</code> | DomElement or an array of DomElements. |
+| [toHeight] | <code>string</code> \| <code>integer</code> | The toHeight param can be either a number or a string, if you wish to specify units you must pass a string. |
 
-**Returns**: <code>Number</code> \| <code>Array.&lt;Number&gt;</code> \| <code>undefined</code> - return is in px  
+**Returns**: <code>Number</code> \| <code>Array.&lt;Number&gt;</code> \| <code>undefined</code> - Either a length in px or an array of lengths.  
+When called with a single **elements** argument **height** will return a height as a number, this number is in **px** units.
+```html
+<div class=".content" style="height:500px" ></div>
+```
 ```javascript
 import {height,select} from 'ember-simple-dom-tools';
 let contentDom = select('.content');
 height(contentDom); // 500px
+```
 
-height(contentDom,'200px'); // 200px
 
+ * When called with multiple **elements** argument **height** will return an Array<number> of height in **px** units.
+```html
+<p class=".intro" style="height:500px" ></p><p class=".intro" style="height:500px" ></p><p class=".intro" style="height:500px" ></p>
+```
+```javascript
+import {height,select} from 'ember-simple-dom-tools';
+let paragraphDom = select('p');
+height(paragraphDom); // 500px
 ```
 
 <a name="outerHeight"></a>
