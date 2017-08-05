@@ -1,0 +1,2 @@
+#!/bin/bash
+jsdoc2md src/* > README.md --template readme.hbs --partial ./doc-templates/global-index-dl.hbs ./doc-templates/docs.hbs ./doc-templates/body.hbs
