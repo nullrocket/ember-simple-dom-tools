@@ -12,6 +12,9 @@ module.exports = function(defaults) {
   }
 
   let app = new EmberAddon(defaults, {
+    'ember-simple-dom-tools': {
+      directory: 'src'
+    }
     // Add options here
 /*    vendorFiles: {
       'jquery.js': null,

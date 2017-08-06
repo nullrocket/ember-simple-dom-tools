@@ -40,5 +40,5 @@ test("Heights Tests", function ( assert ) {
   assert.deepEqual(height(select('#first',fixture),DIMENSION_OPTIONS.RETURN_ARRAY), [200], "Check changed height");
   assert.deepEqual(height(select('#first',fixture),500,DIMENSION_OPTIONS.RETURN_ARRAY,DIMENSION_OPTIONS.SET_ALL), [500], "Check changed height");
 
-  assert.deepEqual(height(select('.article-p',fixture),500,DIMENSION_OPTIONS.RETURN_ARRAY), [500,500,500], "Check changed height");
+ assert.deepEqual(height(select('.article-p',fixture),500,DIMENSION_OPTIONS.RETURN_ARRAY,DIMENSION_OPTIONS.SET_ALL), [500,500,500], "Check changed height");
 });

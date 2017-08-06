@@ -81,22 +81,23 @@ export default function ( selector, context ) {
   if ( !selector ) { return []}
 
   let found;
-  let temp = [0]
+  let temp = [1];
+  let empty = [];
   return isString(selector) ?
     idMatch.test(selector) ?
       // If an ID use the faster getElementById check
-      (found = document.getElementById(selector.slice(1))) ? [ found ] : []
+      (found = document.getElementById(selector.slice(1))) ? [ found ] : empty
       :
-      temp.concat((
-        classMatch.test(selector) ?
-          context.getElementsByClassName(selector.slice(1))
+      (temp.concat(
+      classMatch.test(selector) ?
+        [].slice.call(context.getElementsByClassName(selector.slice(1)))
+        :
+        singlet.test(selector) ?
+          [].slice.call(context.getElementsByTagName(selector))
           :
-          singlet.test(selector) ?
-            context.getElementsByTagName(selector)
-            :
-            context.querySelectorAll(selector)
-      ) ).shift()
+          [].slice.call(context.querySelectorAll(selector))
+    )).slice(1)
     :
-    [];
+    empty;
 
 }
