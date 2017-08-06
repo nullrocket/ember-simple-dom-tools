@@ -27,6 +27,7 @@
     "broccoli-string-replace": "^0.1.2",
     "ember-cli-babel": "^6.3.0",
     "ember-native-dom-helpers": "^0.5.2"
+
   },
   "devDependencies": {
     "broccoli-asset-rev": "^2.4.5",

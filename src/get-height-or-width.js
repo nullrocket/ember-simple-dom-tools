@@ -1,5 +1,12 @@
 import {getStyles, curCSS, rnumnonpx, boxSizingReliableVal, boxModelAdjustment, css} from './css';
 
+export const DIMENSION_OPTIONS = {
+  SET_ALL: Symbol(),
+  RETURN_ARRAY: Symbol()
+
+}
+
+
 /*
 
 https://github.com/jquery/jquery/pull/3561
@@ -53,6 +60,35 @@ function _getWidthOrHeight( elem, dimension, extra ) {
   ) /*+ "px"*/;
 }
 
+function merge_options( obj1, obj2 ) {
+  var obj3 = {};
+  for ( var attrname in obj1 ) { obj3[ attrname ] = obj1[ attrname ]; }
+  for ( attrname in obj2 ) { obj3[ attrname ] = obj2[ attrname ]; }
+  return obj3;
+}
+
+function getOptions( options, defaultOptions ) {
+  let hasSomeKeys = false;
+  if ( options ) {
+    for ( var k in defaultOptions ) {
+      if ( options.hasOwnProperty(k) ) {
+        hasSomeKeys = true;
+        break;
+      }
+    }
+    if ( hasSomeKeys ) {
+      return merge_options(defaultOptions, options);
+    }
+    return defaultOptions;
+  }
+  else {
+    return defaultOptions;
+  }
+}
+
+let isCSSUnitNumber = /^[+-]?[0-9]+.?([0-9]+)?(px|em|ex|%|in|cm|mm|pt|pc|ch|rem|vw|vh|vmin|vmas)$/;
+
+
 /*
  * @module ember-simple-dom-tools
  * @function getWidthOrHeight
@@ -67,40 +103,73 @@ function _getWidthOrHeight( elem, dimension, extra ) {
  * @param {string} [toHeight]
  * @returns {Number|undefined}
  */
-export default function getWidthOrHeight( dimension ) {
-  console.log(dimension);
-  return function _dimension( elements, toDimension ) {
-    let newDimension;
-    if ( typeof toDimension == 'number' && Number.isFinite(toDimension) ) {
-      newDimension = Math.round(toDimension);
-    }
+function getWidthOrHeight( dimension ) {
 
-    if ( typeof toDimension == 'string' && /^[+-]?[0-9]+.?([0-9]+)?(px|em|ex|%|in|cm|mm|pt|pc|ch|rem|vw|vh|vmin|vmas)$/.test(toDimension) ) {
-      let unit = toDimension.match(/\D+$/)[ 0 ];
-      if ( unit === 'px' ) {
-        newDimension = Math.round(parseFloat(toDimension)) + "px";
+  return function _dimension(isArray, elements, value ) {
+    if ( elements ) {
+      let element = ( isArray) ? elements[ 0 ] : elements;
+      if ( value ) {
+        element.style.height = value;
       }
-      else {
-        newDimension = toDimension;
-      }
+      return value ? parseFloat(element.style.height) : _getWidthOrHeight(element, dimension);
     }
+  }
+}
+
+
+function getWidthsOrHeights( dimension ) {
+
+  return function _dimension( isArray, elements, value ) {
 
     if ( elements ) {
-      if ( Array.isArray(elements) || elements instanceof NodeList || elements instanceof HTMLCollection ) {
+      if ( isArray) {
         let dimensions = [];
         for ( var i = 0; i < elements.length; i++ ) {
-          dimensions.push(_dimension(elements[ i ], newDimension))
+          dimensions.push(_dimension(!isArray,elements[ i ], value));
         }
-        return (newDimension || dimensions.length <= 1) ? dimensions[ 0 ] : dimensions;
-
+        return dimensions;
       }
       else {
-        if ( newDimension ) {
-          elements.style.height = newDimension;
+        if ( value ) {
+          elements.style.height = value;
         }
-
-        return newDimension ? parseFloat(elements.style.height) : _getWidthOrHeight(elements, dimension);
+        return value ? parseFloat(elements.style.height) : _getWidthOrHeight(elements, dimension);
       }
     }
   }
 }
+
+
+function dimension( dim ) {
+  let dimension = getWidthOrHeight(dim);
+  let dimensions = getWidthsOrHeights(dim);
+  return function _dimension( elements, ...params ) {
+    let value;
+    if ( params ) {
+      let valueType = typeof params[ 0 ];
+      if ( valueType === 'number' && Number.isFinite(params[ 0 ]) ) {
+        value = Math.round(params[ 0 ]) + 'px';
+      }
+      else if ( valueType === 'string' && isCSSUnitNumber.test(params[ 0 ]) ) {
+        value = ( params[ 0 ].match(/\D+$/)[ 0 ] === 'px' ) ? (Math.round(parseFloat(params[ 0 ])) + "px") : params[ 0 ];
+      }
+    }
+    let setAll = params.includes(DIMENSION_OPTIONS.SET_ALL);
+    let returnArray = params.includes(DIMENSION_OPTIONS.RETURN_ARRAY);
+    let isArray = ( Array.isArray(elements) || elements instanceof NodeList || elements instanceof HTMLCollection );
+    if ( setAll || (returnArray && isArray) ) {
+      let ret = dimensions(isArray,elements, value);
+      return returnArray ? ret : ret.length ? ret[ 0 ] : [];
+
+    }
+    else {
+      return returnArray ? [ dimension(isArray,elements, value) ] : dimension(isArray,elements, value);
+    }
+  };
+
+}
+
+export let height = dimension('height');
+
+
+export let width = dimension("width");

@@ -21,7 +21,8 @@ module.exports = {
   },
 
     treeForAddon(tree) {
-      let newTree = this._debugTree('src', 'input');
+      let thisPath = path.dirname(require.resolve('ember-simple-dom-tools/src'));
+      let newTree = this._debugTree(thisPath, 'input');
       newTree = new Funnel(newTree);
 
 

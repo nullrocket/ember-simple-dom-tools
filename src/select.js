@@ -42,7 +42,6 @@ The latest W3C specification says elements is an HTMLCollection; however, this m
 function find( selector, context ) {
   context = context || document;
   let elems;
-  //console.log(selector/*,context.querySelectorAll(selector.replace(/([.:+~#> ])/g,"\$1") )*/);
   try {
     elems = (
       classMatch.test(selector) ?
@@ -58,14 +57,14 @@ function find( selector, context ) {
     return [];
   }
 
-  return elems;
+  return [ ...elems ];
 }
 
 
 /**
  * @module ember-simple-dom-tools
  * @function select
- * @sometext
+ * @description
  * A wrapper around native dom element selection methods **document.getElementById**, **document.querySelectorAll**, **document.getElementsByClassName** and **document.getElementsByTagName**.
  * ```javascript
  * select
@@ -80,21 +79,15 @@ function find( selector, context ) {
 export default function ( selector, context ) {
 
   if ( !selector ) { return []}
-  let elems;
-  if ( isString(selector) ) {
-    if ( idMatch.test(selector) ) {
+
+  let found;
+  return isString(selector) ?
+    idMatch.test(selector) ?
       // If an ID use the faster getElementById check
-      let found = document.getElementById(selector.slice(1));
-
-      return found ? [found] : []
-
-    }
-    else {
-
-     return   [].concat.apply([], find(selector, context));
-    }
-
-  }
-  return elems ? [].concat.apply([],elems) : [];
+      (found = document.getElementById(selector.slice(1))) ? [ found ] : []
+      :
+      [ ...find(selector, context) ]
+    :
+    [];
 
 }

@@ -1,4 +1,4 @@
-import getWidthOrHeight from './get-height-or-width'
+export  {height,DIMENSION_OPTIONS} from './get-height-or-width'
 
 /**
  * @module ember-simple-dom-tools
@@ -35,6 +35,6 @@ import getWidthOrHeight from './get-height-or-width'
  * @param {string|integer} [toHeight]  The toHeight param can be either a number or a string, if you wish to specify units you must pass a string.
  * @returns {Number|Array<Number>|undefined} Either a length in px or an array of lengths.
  */
-let height = getWidthOrHeight("height");
 
-export default height;
+//export default height;
+

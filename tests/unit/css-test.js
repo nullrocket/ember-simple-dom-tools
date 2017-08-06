@@ -4,7 +4,7 @@ import {select,empty,create,append} from 'ember-simple-dom-tools';
 import {css} from 'ember-simple-dom-tools/css';
 import {style} from 'ember-simple-dom-tools/css';
 
-test("width function exists", function(assert){
+test("css function exists", function(assert){
   assert.ok(css);
 });
 
