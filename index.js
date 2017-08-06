@@ -10,37 +10,42 @@ let BroccoliDebug = require('broccoli-debug');
 module.exports = {
   name: 'ember-simple-dom-tools',
 
-  init(app) {
+  init( app ) {
     this._super.init && this._super.init.apply(this, arguments);
 
     this._debugTree = BroccoliDebug.buildDebugCallback('ember-simple-dom-tools');
 
   },
-  included(app){
+  included( app ) {
     if ( typeof app.import !== 'function' && app.app ) {
       app = app.app;
     }
-    this.srcPath = app.options['ember-simple-dom-tools']['directory'] || path.dirname(require.resolve('ember-simple-dom-tools/src'));
+    if ( app.options[ 'ember-simple-dom-tools' ] && app.options[ 'ember-simple-dom-tools' ][ 'directory' ] ) {
+      this.srcPath = app.options[ 'ember-simple-dom-tools' ][ 'directory' ]
+    }
+    else {
+      this.srcPath = path.dirname(require.resolve('ember-simple-dom-tools/src'));
+    }
   },
   _shouldCompileJS() {
     return true;
   },
 
-    treeForAddon(tree) {
+  treeForAddon( tree ) {
 
-      let newTree = this._debugTree(this.srcPath, 'input');
-      newTree = new Funnel(newTree);
+    let newTree = this._debugTree(this.srcPath, 'input');
+    newTree = new Funnel(newTree);
 
 
-
-      if (tree) {
-        tree = mergeTrees([newTree, tree], {
-          overwrite: true
-        });
-      } else {
-        tree = newTree;
-      }
-      return this._super.treeForAddon.call(this, tree);
+    if ( tree ) {
+      tree = mergeTrees([ newTree, tree ], {
+        overwrite: true
+      });
     }
+    else {
+      tree = newTree;
+    }
+    return this._super.treeForAddon.call(this, tree);
+  }
 
 };
