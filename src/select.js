@@ -81,12 +81,13 @@ export default function ( selector, context ) {
   if ( !selector ) { return []}
 
   let found;
+  let temp = [0]
   return isString(selector) ?
     idMatch.test(selector) ?
       // If an ID use the faster getElementById check
       (found = document.getElementById(selector.slice(1))) ? [ found ] : []
       :
-      [ ...(
+      temp.concat((
         classMatch.test(selector) ?
           context.getElementsByClassName(selector.slice(1))
           :
@@ -94,7 +95,7 @@ export default function ( selector, context ) {
             context.getElementsByTagName(selector)
             :
             context.querySelectorAll(selector)
-      ) ]
+      ) ).shift()
     :
     [];
 
