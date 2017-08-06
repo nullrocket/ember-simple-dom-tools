@@ -77,7 +77,7 @@ function find( selector, context ) {
  * @returns {Array} Returns an array of elements matching the selector, or an empty array if no elements match.
  */
 export default function ( selector, context ) {
-
+  context = context || document;
   if ( !selector ) { return []}
 
   let found;
@@ -86,7 +86,15 @@ export default function ( selector, context ) {
       // If an ID use the faster getElementById check
       (found = document.getElementById(selector.slice(1))) ? [ found ] : []
       :
-      [ ...find(selector, context) ]
+      [ ...(
+        classMatch.test(selector) ?
+          context.getElementsByClassName(selector.slice(1))
+          :
+          singlet.test(selector) ?
+            context.getElementsByTagName(selector)
+            :
+            context.querySelectorAll(selector)
+      ) ]
     :
     [];
 
