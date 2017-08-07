@@ -81,23 +81,36 @@ export default function ( selector, context ) {
   if ( !selector ) { return []}
 
   let found;
-  let temp = [1];
   let empty = [];
   return isString(selector) ?
     idMatch.test(selector) ?
       // If an ID use the faster getElementById check
       (found = document.getElementById(selector.slice(1))) ? [ found ] : empty
       :
-      (temp.concat(
-      classMatch.test(selector) ?
-        [].slice.call(context.getElementsByClassName(selector.slice(1)))
-        :
-        singlet.test(selector) ?
-          [].slice.call(context.getElementsByTagName(selector))
+    (
+        classMatch.test(selector) ?
+          nonnative_slice(context.getElementsByClassName(selector.slice(1)))
           :
-          [].slice.call(context.querySelectorAll(selector))
-    )).slice(1)
+          singlet.test(selector) ?
+            nonnative_slice(context.getElementsByTagName(selector))
+            :
+            nonnative_slice(context.querySelectorAll(selector))
+      )
     :
     empty;
 
+}
+
+function nonnative_slice( item, start ) {
+  start = ~~start;
+  var
+    len = item.length, i, newArray;
+
+  newArray = new Array(len - start);
+
+  for ( i = start; i < len; i++ ) {
+    newArray[ i - start ] = item[ i ];
+  }
+
+  return newArray;
 }
