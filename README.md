@@ -97,6 +97,7 @@ let selectedDom = dom.select('.content');
 <dd></dd>
 </dl>
 
+---
 <br>
 <a name="append"></a>
 
@@ -110,6 +111,7 @@ let selectedDom = dom.select('.content');
 | destination | <code>DomElement</code> | A DOM element to append elements to. |
 
 
+---
 <br>
 <a name="create"></a>
 
@@ -122,6 +124,7 @@ let selectedDom = dom.select('.content');
 | html | <code>string</code> | A valid string of html |
 
 
+---
 <br>
 <a name="empty"></a>
 
@@ -134,6 +137,7 @@ let selectedDom = dom.select('.content');
 | elements | <code>Element</code> \| <code>Array.&lt;Element&gt;</code> \| <code>NodeList</code> \| <code>HTMLCollection</code> | Elements to remove children from. |
 
 
+---
 <br>
 <a name="height"></a>
 
@@ -190,6 +194,7 @@ height(paragraphDom); // [500,500,500]
 ```
 
 
+---
 <br>
 <a name="outerHeight"></a>
 
@@ -203,6 +208,7 @@ height(paragraphDom); // [500,500,500]
 | [margins] | <code>boolean</code> | If true include margins in the return value. |
 
 
+---
 <br>
 <a name="outerWidth"></a>
 
@@ -216,6 +222,7 @@ height(paragraphDom); // [500,500,500]
 | [margins] | <code>boolean</code> | If true include margins in the return value. |
 
 
+---
 <br>
 <a name="remove"></a>
 
@@ -228,6 +235,7 @@ height(paragraphDom); // [500,500,500]
 | elements | <code>Element</code> \| <code>Array.&lt;Element&gt;</code> \| <code>NodeList</code> \| <code>HTMLCollection</code> | Elements to remove. |
 
 
+---
 <br>
 <a name="select"></a>
 
@@ -247,6 +255,7 @@ select
 ```
 
 
+---
 <br>
 <a name="width"></a>
 
