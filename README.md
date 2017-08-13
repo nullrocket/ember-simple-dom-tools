@@ -168,7 +168,7 @@ import {height,select} from 'ember-simple-dom-tools';
 let paragraphDom = select('p');
 height(paragraphDom); // 500
 
-// height called with an array of elements **elements** and the option
+// height called with an array of elements  and the option
 // DIMENSION_OPTIONS.RETURN ARRAY will return an array of all the passed elements heights.
 import {height,select} from 'ember-simple-dom-tools';
 let paragraphDom = select('p');
