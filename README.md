@@ -193,6 +193,8 @@ height(paragraphDom); // 500
 // DIMENSION_OPTIONS.RETURN ARRAY will return an array of all the passed elements heights.
 height(paragraphDom,DIMENSION_OPTIONS.RETURN_ARRAY); // [500,500,500]
 
+// height called with single element, a value, and no options will return a single value.
+height(contentDom,600); // 600
 
 ```
 
