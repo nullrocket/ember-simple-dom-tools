@@ -19,7 +19,7 @@
  * ```
  *
  * ```javascript
- * //some.js
+ * //height.js
  * import {height,select} from 'ember-simple-dom-tools';
  * let contentDom = select('.content');
  *
