@@ -6,16 +6,14 @@
 [travis-badge-url]: https://travis-ci.org/nullrocket/ember-simple-dom-tools
 
 
-## Useless for the moment
-This library **ember-simple-dom-tools** is a collection of dom manipulation utilities as an alternative to jQuery.
-
-When using Ember you frequently need don't jQuery and other dom manipulation libraries
+## Useless for the moment.
+As you get deeper into Ember you frequently need don't jQuery and other dom manipulation libraries
 or their overhead.  This library is not as fully featured as jQuery but does allow you to pull in the bare
-minimum dom manipulation functionality needed.
+minimum and efficient dom manipulation functionality needed.
 
 
 
-
+ember-simple-dom-tools is a collection of dom utilities as an alternative to jQuery.
 
 ## API Design summary
 
@@ -159,7 +157,7 @@ let selectedDom = dom.select('.content');
 | [toHeight] | <code>string</code> \| <code>integer</code> | The toHeight param can be either a number or a string, if you wish to specify units you must pass a string. |
 | [...DIMENSION_OPTIONS] | <code>DIMENSION_OPTIONS</code> | If set to DIMENSION_OPTIONS.SET_ALL then all passed elements will have their heights set to value if a value is passed. |
 
-**Returns**: <code>Number</code> \| <code>Array.&lt;Number&gt;</code> \| <code>undefined</code> - Either a length in px or an array of lengths.  
+**Returns**: <code>Number</code> \| <code>Array.&lt;Number&gt;</code> \| <code>undefined</code> - Either a length or an array of lengths. Values are in px units. If an element is not found an empty array or undefined will be returned depending on the options passed.  
 When called with a single **elements** argument **height** will return a height as a number, this number is in **px** units.
 
 ```html
