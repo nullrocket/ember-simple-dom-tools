@@ -7,13 +7,12 @@
 
 
 ## Useless for the moment.
-As you get deeper into Ember you frequently need don't jQuery and other dom manipulation libraries
-or their overhead.  This library is not as fully featured as jQuery but does allow you to pull in the bare
-minimum and efficient dom manipulation functionality needed.
+This library **ember-simple-dom-tools** is a collection of dom utilities as an alternative to jQuery or other dom manipulation libraries
+This library is not as fully featured as jQuery but does allow you to pull in the bare minimum and efficient dom manipulation functionality needed.
 
 
 
-ember-simple-dom-tools is a collection of dom utilities as an alternative to jQuery.
+
 
 ## API Design summary
 
@@ -160,7 +159,7 @@ let selectedDom = dom.select('.content');
 | [toHeight] | <code>string</code> \| <code>integer</code> | The toHeight param can be either a number or a string, if you wish to specify units you must pass a string. |
 | [...DIMENSION_OPTIONS] | <code>DIMENSION_OPTIONS</code> | If set to DIMENSION_OPTIONS.SET_ALL then all passed elements will have their heights set to value if a value is passed. |
 
-**Returns**: <code>Number</code> \| <code>Array.&lt;Number&gt;</code> \| <code>undefined</code> - Either a length or an array of lengths. Values are in px units. If an element is not found an empty array or undefined will be returned depending on the options passed.  
+**Returns**: <code>Number</code> \| <code>Array.&lt;Number&gt;</code> \| <code>undefined</code> - Either a length or an array of lengths depending on the options passed in, values are in px units. Return undefined if an element is not found.  
 <br>
 ```html
 //index.html
