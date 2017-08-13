@@ -9,7 +9,7 @@
  * When called with a single **elements** argument **height** will return a height as a number, this number is in **px** units.
  *
  * ```html
- * //index.htm.
+ * //index.html
  * ...
  * <div class=".content" style="height:500px" >
  *   <p class=".intro" style="height:500px" > </p>
@@ -29,9 +29,9 @@
  *
  * // height called with a single element and the option DIMENSION_OPTIONS.RETURN_ARRAY
  * // will always return an array of values.
- * height(contentDom,DIMENSION_OPTIONS.RETURN_ARRAY) // [500]
+ * height(contentDom,DIMENSION_OPTIONS.RETURN_ARRAY); // [500]
  *
- * // height called with an array of elements **elements** will return the height of the
+ * // height called with an array of elements will return the height of the
  * // first element.
  * let paragraphDom = select('p');
  * height(paragraphDom); // 500
