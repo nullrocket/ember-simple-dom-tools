@@ -6,9 +6,16 @@
 [travis-badge-url]: https://travis-ci.org/nullrocket/ember-simple-dom-tools
 
 
-Absolutely untested and highly experimental.  Actually useless for the moment.
+## Useless for the moment
+This library **ember-simple-dom-tools** is a collection of dom manipulation utilities as an alternative to jQuery.
 
-ember-simple-dom-tools is a collection of dom utilities as an alternative to jQuery.
+When using Ember you frequently need don't jQuery and other dom manipulation libraries
+or their overhead.  This library is not as fully featured as jQuery but does allow you to pull in the bare
+minimum and efficient dom manipulation functionality needed.
+
+
+
+
 
 ## API Design summary
 
@@ -156,7 +163,7 @@ let selectedDom = dom.select('.content');
 When called with a single **elements** argument **height** will return a height as a number, this number is in **px** units.
 
 ```html
-//index.htm.
+//index.html
 ...
 <div class=".content" style="height:500px" >
   <p class=".intro" style="height:500px" > </p>
@@ -176,9 +183,9 @@ height(contentDom); // 500
 
 // height called with a single element and the option DIMENSION_OPTIONS.RETURN_ARRAY
 // will always return an array of values.
-height(contentDom,DIMENSION_OPTIONS.RETURN_ARRAY) // [500]
+height(contentDom,DIMENSION_OPTIONS.RETURN_ARRAY); // [500]
 
-// height called with an array of elements **elements** will return the height of the
+// height called with an array of elements will return the height of the
 // first element.
 let paragraphDom = select('p');
 height(paragraphDom); // 500
