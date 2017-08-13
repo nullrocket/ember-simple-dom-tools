@@ -20,7 +20,7 @@
  *
  * ```javascript
  * //height.js
- * import {height,select} from 'ember-simple-dom-tools';
+ * import {height,select,DIMENSION_OPTIONS} from 'ember-simple-dom-tools';
  * let contentDom = select('.content');
  *
  * // height called with single element and no options will return a single value.
