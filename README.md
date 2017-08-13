@@ -99,6 +99,8 @@ let selectedDom = dom.select('.content');
 <a name="append"></a>
 
 ## append(elements, destination) ⇒ <code>Array</code> \| <code>undefined</code>
+
+---
 **Kind**: global function  
 
 | Param | Type | Description |
@@ -109,6 +111,8 @@ let selectedDom = dom.select('.content');
 <a name="create"></a>
 
 ## create(html) ⇒ <code>NodeList</code>
+
+---
 **Kind**: global function  
 
 | Param | Type | Description |
@@ -118,6 +122,8 @@ let selectedDom = dom.select('.content');
 <a name="empty"></a>
 
 ## empty(elements) ⇒ <code>Array.&lt;(Elements\|null)&gt;</code>
+
+---
 **Kind**: global function  
 
 | Param | Type | Description |
@@ -127,6 +133,8 @@ let selectedDom = dom.select('.content');
 <a name="height"></a>
 
 ## height(elements, [toHeight], [...DIMENSION_OPTIONS]) ⇒ <code>Number</code> \| <code>Array.&lt;Number&gt;</code> \| <code>undefined</code>
+
+---
 **Kind**: global function  
 **Summary**: Get or set height for DomElements passed into **elements**.  
 
@@ -160,7 +168,7 @@ height(contentDom); // 500
 
 // height called with a single element and the option DIMENSION_OPTIONS.RETURN_ARRAY
 // will always return an array of values.
-.height(contentDom,DIMENSION_OPTIONS.RETURN_ARRAY) // [500]
+height(contentDom,DIMENSION_OPTIONS.RETURN_ARRAY) // [500]
 
 // height called with an array of elements **elements** will return the height of the
 // first element.
@@ -180,6 +188,8 @@ height(paragraphDom); // [500,500,500]
 <a name="outerHeight"></a>
 
 ## outerHeight(elements, [margins]) ⇒ <code>Array</code>
+
+---
 **Kind**: global function  
 
 | Param | Type | Description |
@@ -190,6 +200,8 @@ height(paragraphDom); // [500,500,500]
 <a name="outerWidth"></a>
 
 ## outerWidth(elements, [margins]) ⇒ <code>Array</code>
+
+---
 **Kind**: global function  
 
 | Param | Type | Description |
@@ -200,6 +212,8 @@ height(paragraphDom); // [500,500,500]
 <a name="remove"></a>
 
 ## remove(elements) ⇒ <code>Array.&lt;(Elements\|null)&gt;</code>
+
+---
 **Kind**: global function  
 
 | Param | Type | Description |
@@ -209,6 +223,8 @@ height(paragraphDom); // [500,500,500]
 <a name="select"></a>
 
 ## select(selector, context) ⇒ <code>Array</code>
+
+---
 **Kind**: global function  
 
 | Param | Type | Description |
@@ -225,6 +241,8 @@ select
 <a name="width"></a>
 
 ## width(elements, [toWidth]) ⇒ <code>Number</code> \| <code>Array.&lt;Number&gt;</code> \| <code>undefined</code>
+
+---
 **Kind**: global function  
 
 | Param | Type | Description |

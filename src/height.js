@@ -29,7 +29,7 @@
  *
  * // height called with a single element and the option DIMENSION_OPTIONS.RETURN_ARRAY
  * // will always return an array of values.
- * .height(contentDom,DIMENSION_OPTIONS.RETURN_ARRAY) // [500]
+ * height(contentDom,DIMENSION_OPTIONS.RETURN_ARRAY) // [500]
  *
  * // height called with an array of elements **elements** will return the height of the
  * // first element.
