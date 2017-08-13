@@ -45,7 +45,7 @@
  * @param {DomElement|NodeList|HTMLCollection|Array} elements A DomElement or an array of DomElements.
  * @param {string|integer} [toHeight]  The toHeight param can be either a number or a string, if you wish to specify units you must pass a string.
  * @param {...DIMENSION_OPTIONS} [DIMENSION_OPTIONS] If set to DIMENSION_OPTIONS.SET_ALL then all passed elements will have their heights set to value if a value is passed.
- * @returns {Number|Array<Number>|undefined} Either a length or an array of lengths. Values are in px units. If an element is not found an empty array or undefined will be returned depending on the options passed.
+ * @returns {Number|Array<Number>|undefined} Either a length or an array of lengths depending on the options passed in, values are in px units. Return undefined if an element is not found.
  */
 export  {height,DIMENSION_OPTIONS} from './get-height-or-width';
 
