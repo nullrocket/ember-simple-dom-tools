@@ -96,11 +96,12 @@ let selectedDom = dom.select('.content');
 <dt><a href="#width">width(elements, [toWidth])</a> ⇒ <code>Number</code> | <code>Array.&lt;Number&gt;</code> | <code>undefined</code></dt>
 <dd></dd>
 </dl>
+
+<br>
 <a name="append"></a>
 
 ## append(elements, destination) ⇒ <code>Array</code> \| <code>undefined</code>
 
----
 **Kind**: global function  
 
 | Param | Type | Description |
@@ -108,33 +109,36 @@ let selectedDom = dom.select('.content');
 | elements | <code>Array</code> | An element or an array of elements to append |
 | destination | <code>DomElement</code> | A DOM element to append elements to. |
 
+
+<br>
 <a name="create"></a>
 
 ## create(html) ⇒ <code>NodeList</code>
 
----
 **Kind**: global function  
 
 | Param | Type | Description |
 | --- | --- | --- |
 | html | <code>string</code> | A valid string of html |
 
+
+<br>
 <a name="empty"></a>
 
 ## empty(elements) ⇒ <code>Array.&lt;(Elements\|null)&gt;</code>
 
----
 **Kind**: global function  
 
 | Param | Type | Description |
 | --- | --- | --- |
 | elements | <code>Element</code> \| <code>Array.&lt;Element&gt;</code> \| <code>NodeList</code> \| <code>HTMLCollection</code> | Elements to remove children from. |
 
+
+<br>
 <a name="height"></a>
 
 ## height(elements, [toHeight], [...DIMENSION_OPTIONS]) ⇒ <code>Number</code> \| <code>Array.&lt;Number&gt;</code> \| <code>undefined</code>
 
----
 **Kind**: global function  
 **Summary**: Get or set height for DomElements passed into **elements**.  
 
@@ -185,11 +189,12 @@ height(paragraphDom); // [500,500,500]
 
 ```
 
+
+<br>
 <a name="outerHeight"></a>
 
 ## outerHeight(elements, [margins]) ⇒ <code>Array</code>
 
----
 **Kind**: global function  
 
 | Param | Type | Description |
@@ -197,11 +202,12 @@ height(paragraphDom); // [500,500,500]
 | elements | <code>Array</code> | An element or an array of elements to get outerHeight from |
 | [margins] | <code>boolean</code> | If true include margins in the return value. |
 
+
+<br>
 <a name="outerWidth"></a>
 
 ## outerWidth(elements, [margins]) ⇒ <code>Array</code>
 
----
 **Kind**: global function  
 
 | Param | Type | Description |
@@ -209,22 +215,24 @@ height(paragraphDom); // [500,500,500]
 | elements | <code>Array</code> | An element or an array of elements to get outerWidth from |
 | [margins] | <code>boolean</code> | If true include margins in the return value. |
 
+
+<br>
 <a name="remove"></a>
 
 ## remove(elements) ⇒ <code>Array.&lt;(Elements\|null)&gt;</code>
 
----
 **Kind**: global function  
 
 | Param | Type | Description |
 | --- | --- | --- |
 | elements | <code>Element</code> \| <code>Array.&lt;Element&gt;</code> \| <code>NodeList</code> \| <code>HTMLCollection</code> | Elements to remove. |
 
+
+<br>
 <a name="select"></a>
 
 ## select(selector, context) ⇒ <code>Array</code>
 
----
 **Kind**: global function  
 
 | Param | Type | Description |
@@ -238,11 +246,12 @@ A wrapper around native dom element selection methods **document.getElementById*
 select
 ```
 
+
+<br>
 <a name="width"></a>
 
 ## width(elements, [toWidth]) ⇒ <code>Number</code> \| <code>Array.&lt;Number&gt;</code> \| <code>undefined</code>
 
----
 **Kind**: global function  
 
 | Param | Type | Description |
