@@ -11,7 +11,7 @@ This library **ember-simple-dom-tools** is a collection of dom manipulation util
 
 When using Ember you frequently need don't jQuery and other dom manipulation libraries
 or their overhead.  This library is not as fully featured as jQuery but does allow you to pull in the bare
-minimum and efficient dom manipulation functionality needed.
+minimum dom manipulation functionality needed.
 
 
 
