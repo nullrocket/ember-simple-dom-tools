@@ -6,7 +6,6 @@
  * Get or set height for DomElements passed into **elements**.
  * @description
  *
- * When called with a single **elements** argument **height** will return a height as a number, this number is in **px** units.
  *
  * ```html
  * //index.html

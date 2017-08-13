@@ -162,8 +162,6 @@ let selectedDom = dom.select('.content');
 
 **Returns**: <code>Number</code> \| <code>Array.&lt;Number&gt;</code> \| <code>undefined</code> - Either a length or an array of lengths. Values are in px units. If an element is not found an empty array or undefined will be returned depending on the options passed.  
 <br>
-When called with a single **elements** argument **height** will return a height as a number, this number is in **px** units.
-
 ```html
 //index.html
 ...
