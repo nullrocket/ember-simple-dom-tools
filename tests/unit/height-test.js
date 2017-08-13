@@ -16,7 +16,8 @@ test("Height Tests", function ( assert ) {
     <p class="article-p" style="height:200cm"></p><p class="article-p"></p><p class="article-p"></p>
     `;
   append(create(testDom), fixture);
-
+  assert.strictEqual(height(select('#firstx',fixture)),undefined, "Get height of single element");
+  assert.strictEqual(height([undefined,undefined]),undefined, "Get height of single element");
   assert.strictEqual(height(select('#first',fixture)), 200.5, "Get height of single element");
   assert.strictEqual(height(select('#first',fixture), '200px'), 200, "Get height of single element");
   assert.strictEqual(height(select('#first',fixture)), 200, "Check changed height");

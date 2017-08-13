@@ -1,34 +1,49 @@
-export  {height,DIMENSION_OPTIONS} from './get-height-or-width'
-
 /**
  * @module ember-simple-dom-tools
  * @function height
  *
  * @summary
- * Get the current height for each elements passed into **elements** or set the height of each element passed into **elements**
+ * Get or set height for DomElements passed into **elements**.
  * @description
  *
  * When called with a single **elements** argument **height** will return a height as a number, this number is in **px** units.
+ *
  * ```html
- * <div class=".content" style="height:500px" ></div>
+ * //index.htm.
+ * ...
+ * <div class=".content" style="height:500px" >
+ *   <p class=".intro" style="height:500px" > </p>
+ *   <p class=".intro" style="height:500px" ></p>
+ *   <p class=".intro" style="height:500px" ></p>
+ * </div>
+ * ...
  * ```
+ *
  * ```javascript
+ * //some.js
  * import {height,select} from 'ember-simple-dom-tools';
  * let contentDom = select('.content');
- * height(contentDom); // 500px
- * ```
  *
+ * // height called with single element and no options will return a single value.
+ * height(contentDom); // 500
  *
- * When called with multiple **elements** argument **height** will return an Array<number> of height in **px** units.
- * ```html
- * <p class=".intro" style="height:500px" >
- * </p><p class=".intro" style="height:500px" ></p>
- * <p class=".intro" style="height:500px" ></p>
- * ```
- * ```javascript
+ * // height called with a single element and the option DIMENSION_OPTIONS.RETURN_ARRAY
+ * // will always return an array of values.
+ * .height(contentDom,DIMENSION_OPTIONS.RETURN_ARRAY) // [500]
+ *
+ * // height called with an array of elements **elements** will return the height of the
+ * // first element.
  * import {height,select} from 'ember-simple-dom-tools';
  * let paragraphDom = select('p');
- * height(paragraphDom); // 500px
+ * height(paragraphDom); // 500
+ *
+ * // height called with an array of elements **elements** and the option
+ * // DIMENSION_OPTIONS.RETURN ARRAY will return an array of all the passed elements heights.
+ * import {height,select} from 'ember-simple-dom-tools';
+ * let paragraphDom = select('p');
+ * height(paragraphDom); // [500,500,500]
+ *
+ *
  * ```
  *
  * @param {DomElement|NodeList|HTMLCollection|Array} elements A DomElement or an array of DomElements.
@@ -36,6 +51,6 @@ export  {height,DIMENSION_OPTIONS} from './get-height-or-width'
  * @param {...DIMENSION_OPTIONS} [DIMENSION_OPTIONS] If set to DIMENSION_OPTIONS.SET_ALL then all passed elements will have their heights set to value if a value is passed.
  * @returns {Number|Array<Number>|undefined} Either a length in px or an array of lengths.
  */
+export  {height,DIMENSION_OPTIONS} from './get-height-or-width';
 
-//export default height;
 

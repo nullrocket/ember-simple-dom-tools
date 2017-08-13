@@ -83,7 +83,7 @@ let selectedDom = dom.select('.content');
 <dt><a href="#empty">empty(elements)</a> ⇒ <code>Array.&lt;(Elements|null)&gt;</code></dt>
 <dd></dd>
 <dt><a href="#height">height(elements, [toHeight], [...DIMENSION_OPTIONS])</a> ⇒ <code>Number</code> | <code>Array.&lt;Number&gt;</code> | <code>undefined</code></dt>
-<dd><p>Get the current height for each elements passed into <strong>elements</strong> or set the height of each element passed into <strong>elements</strong></p>
+<dd><p>Get or set height for DomElements passed into <strong>elements</strong>.</p>
 </dd>
 <dt><a href="#outerHeight">outerHeight(elements, [margins])</a> ⇒ <code>Array</code></dt>
 <dd></dd>
@@ -128,7 +128,7 @@ let selectedDom = dom.select('.content');
 
 ## height(elements, [toHeight], [...DIMENSION_OPTIONS]) ⇒ <code>Number</code> \| <code>Array.&lt;Number&gt;</code> \| <code>undefined</code>
 **Kind**: global function  
-**Summary**: Get the current height for each elements passed into **elements** or set the height of each element passed into **elements**  
+**Summary**: Get or set height for DomElements passed into **elements**.  
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -138,26 +138,43 @@ let selectedDom = dom.select('.content');
 
 **Returns**: <code>Number</code> \| <code>Array.&lt;Number&gt;</code> \| <code>undefined</code> - Either a length in px or an array of lengths.  
 When called with a single **elements** argument **height** will return a height as a number, this number is in **px** units.
+
 ```html
-<div class=".content" style="height:500px" ></div>
+//index.htm.
+...
+<div class=".content" style="height:500px" >
+  <p class=".intro" style="height:500px" > </p>
+  <p class=".intro" style="height:500px" ></p>
+  <p class=".intro" style="height:500px" ></p>
+</div>
+...
 ```
+
 ```javascript
+//some.js
 import {height,select} from 'ember-simple-dom-tools';
 let contentDom = select('.content');
-height(contentDom); // 500px
-```
 
+// height called with single element and no options will return a single value.
+height(contentDom); // 500
 
-When called with multiple **elements** argument **height** will return an Array<number> of height in **px** units.
-```html
-<p class=".intro" style="height:500px" >
-</p><p class=".intro" style="height:500px" ></p>
-<p class=".intro" style="height:500px" ></p>
-```
-```javascript
+// height called with a single element and the option DIMENSION_OPTIONS.RETURN_ARRAY
+// will always return an array of values.
+.height(contentDom,DIMENSION_OPTIONS.RETURN_ARRAY) // [500]
+
+// height called with an array of elements **elements** will return the height of the
+// first element.
 import {height,select} from 'ember-simple-dom-tools';
 let paragraphDom = select('p');
-height(paragraphDom); // 500px
+height(paragraphDom); // 500
+
+// height called with an array of elements **elements** and the option
+// DIMENSION_OPTIONS.RETURN ARRAY will return an array of all the passed elements heights.
+import {height,select} from 'ember-simple-dom-tools';
+let paragraphDom = select('p');
+height(paragraphDom); // [500,500,500]
+
+
 ```
 
 <a name="outerHeight"></a>

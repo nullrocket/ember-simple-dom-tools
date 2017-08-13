@@ -1,4 +1,3 @@
-export {width,DIMENSION_OPTIONS} from './get-height-or-width'
 /**
  * @module ember-simple-dom-tools
  * @function width
@@ -9,6 +8,5 @@ export {width,DIMENSION_OPTIONS} from './get-height-or-width'
  * @param {string} [toWidth]  If supplied will set the width of the passed elements.
  * @returns {Number|Array<Number>|undefined}
  */
-
-//export default width;
+export  {width,DIMENSION_OPTIONS} from './get-height-or-width'
 

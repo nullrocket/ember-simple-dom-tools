@@ -12,7 +12,9 @@ export const DIMENSION_OPTIONS = {
 https://github.com/jquery/jquery/pull/3561
  */
 function _getWidthOrHeight( elem, dimension, extra ) {
-
+  if(!elem) {
+    return undefined;
+  }
   // Start with computed style
   var styles = getStyles(elem);
   var val = curCSS(elem, dimension, styles);
@@ -58,33 +60,12 @@ function _getWidthOrHeight( elem, dimension, extra ) {
       val
     )
   ) /*+ "px"*/;
+
+
 }
 
-function merge_options( obj1, obj2 ) {
-  var obj3 = {};
-  for ( var attrname in obj1 ) { obj3[ attrname ] = obj1[ attrname ]; }
-  for ( attrname in obj2 ) { obj3[ attrname ] = obj2[ attrname ]; }
-  return obj3;
-}
 
-function getOptions( options, defaultOptions ) {
-  let hasSomeKeys = false;
-  if ( options ) {
-    for ( var k in defaultOptions ) {
-      if ( options.hasOwnProperty(k) ) {
-        hasSomeKeys = true;
-        break;
-      }
-    }
-    if ( hasSomeKeys ) {
-      return merge_options(defaultOptions, options);
-    }
-    return defaultOptions;
-  }
-  else {
-    return defaultOptions;
-  }
-}
+
 
 let isCSSUnitNumber = /^[+-]?[0-9]+.?([0-9]+)?(px|em|ex|%|in|cm|mm|pt|pc|ch|rem|vw|vh|vmin|vmas)$/;
 
@@ -142,9 +123,11 @@ function getWidthsOrHeights( dimension ) {
 
 
 function dimension( dim ) {
+
   let dimension = getWidthOrHeight(dim);
   let dimensions = getWidthsOrHeights(dim);
   return function _dimension( elements, ...params ) {
+
     let value;
     if ( params ) {
       let valueType = typeof params[ 0 ];
@@ -165,6 +148,7 @@ function dimension( dim ) {
 
     }
     else {
+
       let ret = returnArray ? [ dimension(isArray,elements, value) ] : dimension(isArray,elements, value);
     //  console.log('ret2',ret,isArray,elements,value)
       return ret;
