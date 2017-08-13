@@ -115,6 +115,7 @@ let selectedDom = dom.select('.content');
 | elements | <code>Array</code> | An element or an array of elements to append |
 | destination | <code>DomElement</code> | A DOM element to append elements to. |
 
+<br>
 
 ---
 <br>
@@ -128,6 +129,7 @@ let selectedDom = dom.select('.content');
 | --- | --- | --- |
 | html | <code>string</code> | A valid string of html |
 
+<br>
 
 ---
 <br>
@@ -141,6 +143,7 @@ let selectedDom = dom.select('.content');
 | --- | --- | --- |
 | elements | <code>Element</code> \| <code>Array.&lt;Element&gt;</code> \| <code>NodeList</code> \| <code>HTMLCollection</code> | Elements to remove children from. |
 
+<br>
 
 ---
 <br>
@@ -158,6 +161,7 @@ let selectedDom = dom.select('.content');
 | [...DIMENSION_OPTIONS] | <code>DIMENSION_OPTIONS</code> | If set to DIMENSION_OPTIONS.SET_ALL then all passed elements will have their heights set to value if a value is passed. |
 
 **Returns**: <code>Number</code> \| <code>Array.&lt;Number&gt;</code> \| <code>undefined</code> - Either a length or an array of lengths. Values are in px units. If an element is not found an empty array or undefined will be returned depending on the options passed.  
+<br>
 When called with a single **elements** argument **height** will return a height as a number, this number is in **px** units.
 
 ```html
@@ -209,6 +213,7 @@ height(paragraphDom,DIMENSION_OPTIONS.RETURN_ARRAY); // [500,500,500]
 | elements | <code>Array</code> | An element or an array of elements to get outerHeight from |
 | [margins] | <code>boolean</code> | If true include margins in the return value. |
 
+<br>
 
 ---
 <br>
@@ -223,6 +228,7 @@ height(paragraphDom,DIMENSION_OPTIONS.RETURN_ARRAY); // [500,500,500]
 | elements | <code>Array</code> | An element or an array of elements to get outerWidth from |
 | [margins] | <code>boolean</code> | If true include margins in the return value. |
 
+<br>
 
 ---
 <br>
@@ -236,6 +242,7 @@ height(paragraphDom,DIMENSION_OPTIONS.RETURN_ARRAY); // [500,500,500]
 | --- | --- | --- |
 | elements | <code>Element</code> \| <code>Array.&lt;Element&gt;</code> \| <code>NodeList</code> \| <code>HTMLCollection</code> | Elements to remove. |
 
+<br>
 
 ---
 <br>
@@ -251,6 +258,7 @@ height(paragraphDom,DIMENSION_OPTIONS.RETURN_ARRAY); // [500,500,500]
 | context | <code>DomElement</code> | A DOM element to use as context |
 
 **Returns**: <code>Array</code> - Returns an array of elements matching the selector, or an empty array if no elements match.  
+<br>
 A wrapper around native dom element selection methods **document.getElementById**, **document.querySelectorAll**, **document.getElementsByClassName** and **document.getElementsByTagName**.
 ```javascript
 select
@@ -270,6 +278,7 @@ select
 | elements | <code>Element</code> \| <code>Array.&lt;Element&gt;</code> \| <code>NodeList</code> \| <code>HTMLCollection</code> | Elements to get the width of. |
 | [toWidth] | <code>string</code> | If supplied will set the width of the passed elements. |
 
+<br>
 https://github.com/jquery/jquery/issues/3193
 
 
