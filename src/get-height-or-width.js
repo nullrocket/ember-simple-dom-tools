@@ -1,7 +1,7 @@
 import {getStyles, curCSS, rnumnonpx, boxSizingReliableVal, boxModelAdjustment, css} from './css';
 
 export const DIMENSION_OPTIONS = {
-  SET_ALL: Symbol(),
+
   RETURN_ARRAY: Symbol()
 
 }
@@ -138,10 +138,10 @@ function dimension( dim ) {
         value = ( params[ 0 ].match(/\D+$/)[ 0 ] === 'px' ) ? (Math.round(parseFloat(params[ 0 ])) + "px") : params[ 0 ];
       }
     }
-    let setAll = params.includes(DIMENSION_OPTIONS.SET_ALL);
+
     let returnArray = params.includes(DIMENSION_OPTIONS.RETURN_ARRAY);
     let isArray = ( Array.isArray(elements) || elements instanceof NodeList || elements instanceof HTMLCollection );
-    if ( setAll || (returnArray && isArray) ) {
+    if ( (returnArray && isArray) ) {
       let ret = dimensions(isArray,elements, value);
      // console.log('ret',ret);
       return returnArray ? ret : ret.length ? ret[ 0 ] : [];

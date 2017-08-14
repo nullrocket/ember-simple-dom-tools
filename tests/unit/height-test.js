@@ -26,6 +26,34 @@ test("Height Tests", function ( assert ) {
 
 });
 
+
+test('Height test docs',function(assert){
+  empty(document.getElementById('ember-testing'));
+  let fixture = document.getElementById('ember-testing');
+  let testDom = `
+  <div class="content" style="height:500px" >
+    <p class="intro" style="height:500px" > </p>
+    <p class="intro" style="height:500px" ></p>
+    <p class="intro" style="height:500px" ></p>
+  </div>`;
+  append(create(testDom), fixture);
+
+  let contentDom = select('.content',fixture);
+  let paragraphDom = select('p',fixture);
+  assert.strictEqual(height(contentDom),500, "Get height of single element");
+  assert.deepEqual(height(contentDom,DIMENSION_OPTIONS.RETURN_ARRAY),[ 500 ], "Get height of single element as an array");
+
+  assert.strictEqual(height(paragraphDom), 500, "Get height of multiple elements, return first value only");
+  assert.deepEqual(height(paragraphDom, DIMENSION_OPTIONS.RETURN_ARRAY), [500,500,500], "Get height of multiple elements as an array");
+  assert.strictEqual(height(contentDom,600), 600, "Set height of a single element");
+  assert.deepEqual(height(contentDom,700,DIMENSION_OPTIONS.RETURN_ARRAY), [700], "Set height of a single element return an array");
+  assert.deepEqual(height(paragraphDom,700), 700, "Set height of an array of elements, return single value");
+  assert.deepEqual(height(paragraphDom,800,DIMENSION_OPTIONS.RETURN_ARRAY), [800,800,800], "Set height of an array of elements, return array");
+
+
+
+});
+
 test("Heights Tests", function ( assert ) {
 
   empty(document.getElementById('ember-testing'));
