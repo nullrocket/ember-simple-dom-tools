@@ -193,16 +193,20 @@ height(paragraphDom); // 500
 // DIMENSION_OPTIONS.RETURN ARRAY will return an array of all the passed elements heights.
 height(paragraphDom,DIMENSION_OPTIONS.RETURN_ARRAY); // [500,500,500]
 
-// height called with single element, a value, and no options will set the elements height and return the newly set height.
+// height called with single element, a value, and no options will set the
+// elements height and return the newly set height.
 height(contentDom,600); // 600
 
-// height called with single element, a value, and DIMENSION_OPTIONS.RETURN_ARRAY will set the elements height and return the newly set height as an array.
+// height called with single element, a value, and DIMENSION_OPTIONS.RETURN_ARRAY
+// will set the elements height and return the newly set height as an array.
 height(contentDom,700,DIMENSION_OPTIONS.RETURN_ARRAY); // [700]
 
-// height called with an array of elements and a value will set the first elements height and return the newly set height.
+// height called with an array of elements and a value will set the first elements
+// height and return the newly set height.
 height(paragraphDomDom,700); // 700
 
- * // height called with an array of elements, a value and DIMENSION_OPTIONS.RETURN_ARRAY will set all elements height and return an array of heights.
+// height called with an array of elements, a value and DIMENSION_OPTIONS.RETURN_ARRAY
+// will set all elements height and return an array of heights.
 height(paragraphDomDom,800,DIMENSION_OPTIONS.RETURN_ARRAY); // [800,800,800]
 
 
