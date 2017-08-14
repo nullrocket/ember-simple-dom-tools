@@ -1,3 +1,5 @@
+import nonnative_slice from './__slice';
+
 let idMatch = /^#[\w-]*$/,
   classMatch = /^\.[\w-]*$/,
   htmlMatch = /<.+>/,
@@ -101,16 +103,3 @@ export default function ( selector, context ) {
 
 }
 
-function nonnative_slice( item, start ) {
-  start = ~~start;
-  var
-    len = item.length, i, newArray;
-
-  newArray = new Array(len - start);
-
-  for ( i = start; i < len; i++ ) {
-    newArray[ i - start ] = item[ i ];
-  }
-
-  return newArray;
-}

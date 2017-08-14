@@ -15,13 +15,10 @@ export default function empty(elements){
         removedElements.push(empty(elements[ i ]))
       }
       return removedElements;
-      //return width ?  elements[ 0 ].style.width = width :elements[ 0 ].getBoundingClientRect()[ "width" ];
+
     }
     else {
-     //   console.log('elements',elements);
          elements.innerHTML = '';
-
-   //   console.log('elements',elements.innerHTML);
     }
   }
 }
