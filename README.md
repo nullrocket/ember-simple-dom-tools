@@ -97,8 +97,9 @@ let selectedDom = dom.select('.content');
 <dd></dd>
 <dt><a href="#select">select(selector, context)</a> ⇒ <code>Array</code></dt>
 <dd></dd>
-<dt><a href="#width">width(elements, [toWidth])</a> ⇒ <code>Number</code> | <code>Array.&lt;Number&gt;</code> | <code>undefined</code></dt>
-<dd></dd>
+<dt><a href="#width">width(elements, [towidth], [...DIMENSION_OPTIONS])</a> ⇒ <code>Number</code> | <code>Array.&lt;Number&gt;</code> | <code>undefined</code></dt>
+<dd><p>Get or set width for DomElements passed into <strong>elements</strong>.</p>
+</dd>
 </dl>
 
 ---
@@ -159,7 +160,7 @@ let selectedDom = dom.select('.content');
 | [toHeight] | <code>string</code> \| <code>integer</code> | The toHeight param can be either a number or a string, if you wish to specify units you must pass a string. |
 | [...DIMENSION_OPTIONS] | <code>DIMENSION_OPTIONS</code> |  |
 
-**Returns**: <code>Number</code> \| <code>Array.&lt;Number&gt;</code> \| <code>undefined</code> - Either a length or an array of lengths depending on the options passed in, values are in px units. Return undefined if an element is not found.  
+**Returns**: <code>Number</code> \| <code>Array.&lt;Number&gt;</code> \| <code>undefined</code> - Either a length or an array of lengths depending on the options passed in, values are in px units. Returns undefined if an element is not found.  
 <br>
 ```html
 //index.html
@@ -282,16 +283,68 @@ select
 <br>
 <a name="width"></a>
 
-## width(elements, [toWidth]) ⇒ <code>Number</code> \| <code>Array.&lt;Number&gt;</code> \| <code>undefined</code>
+## width(elements, [towidth], [...DIMENSION_OPTIONS]) ⇒ <code>Number</code> \| <code>Array.&lt;Number&gt;</code> \| <code>undefined</code>
 
 **Kind**: global function  
+**Summary**: Get or set width for DomElements passed into **elements**.  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| elements | <code>Element</code> \| <code>Array.&lt;Element&gt;</code> \| <code>NodeList</code> \| <code>HTMLCollection</code> | Elements to get the width of. |
-| [toWidth] | <code>string</code> | If supplied will set the width of the passed elements. |
+| elements | <code>DomElement</code> \| <code>NodeList</code> \| <code>HTMLCollection</code> \| <code>Array</code> | A DomElement or an array of DomElements. |
+| [towidth] | <code>string</code> \| <code>integer</code> | The towidth param can be either a number or a string, if you wish to specify units you must pass a string. |
+| [...DIMENSION_OPTIONS] | <code>DIMENSION_OPTIONS</code> |  |
 
+**Returns**: <code>Number</code> \| <code>Array.&lt;Number&gt;</code> \| <code>undefined</code> - Either a length or an array of lengths depending on the options passed in, values are in px units. Returns undefined if an element is not found.  
 <br>
-https://github.com/jquery/jquery/issues/3193
+```html
+//index.html
+...
+<div class="content" style="width:500px" >
+  <p class="intro" style="width:500px" > </p>
+  <p class="intro" style="width:500px" ></p>
+  <p class="intro" style="width:500px" ></p>
+</div>
+...
+```
+
+```javascript
+//width.js
+import {width,select,DIMENSION_OPTIONS} from 'ember-simple-dom-tools';
+let contentDom = select('.content');
+
+// width called with single element and no options will return a single value.
+width(contentDom); // 500
+
+// width called with a single element and the option DIMENSION_OPTIONS.RETURN_ARRAY
+// will always return an array of values.
+width(contentDom,DIMENSION_OPTIONS.RETURN_ARRAY); // [500]
+
+// width called with an array of elements will return the width of the
+// first element.
+let paragraphDom = select('p');
+width(paragraphDom); // 500
+
+// width called with an array of elements  and the option
+// DIMENSION_OPTIONS.RETURN ARRAY will return an array of all the passed elements widths.
+width(paragraphDom,DIMENSION_OPTIONS.RETURN_ARRAY); // [500,500,500]
+
+// width called with single element, a value, and no options will set the
+// elements width and return the newly set width.
+width(contentDom,600); // 600
+
+// width called with single element, a value, and DIMENSION_OPTIONS.RETURN_ARRAY
+// will set the elements width and return the newly set width as an array.
+width(contentDom,700,DIMENSION_OPTIONS.RETURN_ARRAY); // [700]
+
+// width called with an array of elements and a value will set the first elements
+// width and return the newly set width.
+width(paragraphDomDom,700); // 700
+
+// width called with an array of elements, a value and DIMENSION_OPTIONS.RETURN_ARRAY
+// will set all elements width and return an array of widths.
+width(paragraphDomDom,800,DIMENSION_OPTIONS.RETURN_ARRAY); // [800,800,800]
+
+
+```
 
 
