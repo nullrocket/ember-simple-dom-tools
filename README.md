@@ -97,7 +97,7 @@ let selectedDom = dom.select('.content');
 <dd></dd>
 <dt><a href="#select">select(selector, context)</a> ⇒ <code>Array</code></dt>
 <dd></dd>
-<dt><a href="#width">width(elements, [towidth], [...DIMENSION_OPTIONS])</a> ⇒ <code>Number</code> | <code>Array.&lt;Number&gt;</code> | <code>undefined</code></dt>
+<dt><a href="#width">width(elements, [toWidth], [...DIMENSION_OPTIONS])</a> ⇒ <code>Number</code> | <code>Array.&lt;Number&gt;</code> | <code>undefined</code></dt>
 <dd><p>Get or set width for DomElements passed into <strong>elements</strong>.</p>
 </dd>
 </dl>
@@ -283,7 +283,7 @@ select
 <br>
 <a name="width"></a>
 
-## width(elements, [towidth], [...DIMENSION_OPTIONS]) ⇒ <code>Number</code> \| <code>Array.&lt;Number&gt;</code> \| <code>undefined</code>
+## width(elements, [toWidth], [...DIMENSION_OPTIONS]) ⇒ <code>Number</code> \| <code>Array.&lt;Number&gt;</code> \| <code>undefined</code>
 
 **Kind**: global function  
 **Summary**: Get or set width for DomElements passed into **elements**.  
@@ -291,7 +291,7 @@ select
 | Param | Type | Description |
 | --- | --- | --- |
 | elements | <code>DomElement</code> \| <code>NodeList</code> \| <code>HTMLCollection</code> \| <code>Array</code> | A DomElement or an array of DomElements. |
-| [towidth] | <code>string</code> \| <code>integer</code> | The towidth param can be either a number or a string, if you wish to specify units you must pass a string. |
+| [toWidth] | <code>string</code> \| <code>integer</code> | The toWidth param can be either a number or a string, if you wish to specify units you must pass a string. |
 | [...DIMENSION_OPTIONS] | <code>DIMENSION_OPTIONS</code> |  |
 
 **Returns**: <code>Number</code> \| <code>Array.&lt;Number&gt;</code> \| <code>undefined</code> - Either a length or an array of lengths depending on the options passed in, values are in px units. Returns undefined if an element is not found.  

@@ -59,7 +59,7 @@
  * ```
  *
  * @param {DomElement|NodeList|HTMLCollection|Array} elements A DomElement or an array of DomElements.
- * @param {string|integer} [towidth]  The towidth param can be either a number or a string, if you wish to specify units you must pass a string.
+ * @param {string|integer} [toWidth]  The toWidth param can be either a number or a string, if you wish to specify units you must pass a string.
  * @param {...DIMENSION_OPTIONS} [DIMENSION_OPTIONS]
  * @returns {Number|Array<Number>|undefined} Either a length or an array of lengths depending on the options passed in, values are in px units. Returns undefined if an element is not found.
  */
