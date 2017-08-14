@@ -81,7 +81,8 @@ let selectedDom = dom.select('.content');
 ## Functions
 <dl>
 <dt><a href="#append">append(elements, destination)</a> ⇒ <code>Array</code> | <code>undefined</code></dt>
-<dd></dd>
+<dd><p>Append elements to a DomElement.</p>
+</dd>
 <dt><a href="#create">create(html)</a> ⇒ <code>NodeList</code></dt>
 <dd></dd>
 <dt><a href="#empty">empty(elements)</a> ⇒ <code>Array.&lt;(Elements|null)&gt;</code></dt>
@@ -109,6 +110,7 @@ let selectedDom = dom.select('.content');
 ## append(elements, destination) ⇒ <code>Array</code> \| <code>undefined</code>
 
 **Kind**: global function  
+**Summary**: Append elements to a DomElement.  
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -116,6 +118,8 @@ let selectedDom = dom.select('.content');
 | destination | <code>DomElement</code> | A DOM element to append elements to. |
 
 <br>
+Append elements to a DomElement.
+
 
 ---
 <br>
