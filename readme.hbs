@@ -7,10 +7,11 @@
 
 
 ## Useless for the moment.
+**THIS IS MUCH MORE TEDIOUS TO DO THAN I IMAGINED**
 This library **ember-simple-dom-tools** is a collection of dom utilities as an alternative to jQuery or other dom manipulation libraries
 This library is not as fully featured as jQuery but does allow you to pull in the bare minimum dom manipulation functionality needed.
 
-**THIS IS MUCH MORE TEDIOUS TO DO THAN I IMAGINED**
+
 
 
 
