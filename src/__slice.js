@@ -1,6 +1,6 @@
 
 
-export default function nonnative_slice( item, start ) {
+export default function __slice( item, start ) {
   start = ~~start;
   let  len = item.length
   let i

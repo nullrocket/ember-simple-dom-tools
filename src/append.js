@@ -1,4 +1,4 @@
-import nonnative_slice from './__slice';
+import __slice from './__slice';
 
 /**
  * @module ember-simple-dom-tools
@@ -22,14 +22,14 @@ export default function ( elements, destination ) {
       while ( elements.length ) {
         fragment.append(elements[ 0 ]);
       }
-      let children = nonnative_slice(fragment.childNodes);
+      let children = __slice(fragment.childNodes);
       destination.appendChild(fragment);
       return children;
     }
     else {
 
       fragment.append(elements);
-      let children = nonnative_slice(fragment.childNodes);
+      let children = __slice(fragment.childNodes);
       destination.appendChild(fragment);
       return children;
     }

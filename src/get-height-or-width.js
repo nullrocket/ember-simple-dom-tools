@@ -108,7 +108,6 @@ function getWidthsOrHeights( dimension ) {
         for ( var i = 0; i < elements.length; i++ ) {
           dimensions.push(_dimension(!isArray,elements[ i ], value));
         }
-      //  console.log('gar',dimensions);
         return dimensions;
       }
       else {
@@ -123,11 +122,9 @@ function getWidthsOrHeights( dimension ) {
 
 
 function dimension( dim ) {
-
   let dimension = getWidthOrHeight(dim);
   let dimensions = getWidthsOrHeights(dim);
   return function _dimension( elements, ...params ) {
-
     let value;
     if ( params ) {
       let valueType = typeof params[ 0 ];
@@ -143,21 +140,18 @@ function dimension( dim ) {
     let isArray = ( Array.isArray(elements) || elements instanceof NodeList || elements instanceof HTMLCollection );
     if ( (returnArray && isArray) ) {
       let ret = dimensions(isArray,elements, value);
-     // console.log('ret',ret);
       return returnArray ? ret : ret.length ? ret[ 0 ] : [];
 
     }
     else {
 
       let ret = returnArray ? [ dimension(isArray,elements, value) ] : dimension(isArray,elements, value);
-    //  console.log('ret2',ret,isArray,elements,value)
       return ret;
     }
   };
 
 }
 
+
 export let height = dimension('height');
-
-
 export let width = dimension("width");

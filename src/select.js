@@ -1,4 +1,4 @@
-import nonnative_slice from './__slice';
+import __slice from './__slice';
 
 let idMatch = /^#[\w-]*$/,
   classMatch = /^\.[\w-]*$/,
@@ -91,12 +91,12 @@ export default function ( selector, context ) {
       :
     (
         classMatch.test(selector) ?
-          nonnative_slice(context.getElementsByClassName(selector.slice(1)))
+          __slice(context.getElementsByClassName(selector.slice(1)))
           :
           singlet.test(selector) ?
-            nonnative_slice(context.getElementsByTagName(selector))
+            __slice(context.getElementsByTagName(selector))
             :
-            nonnative_slice(context.querySelectorAll(selector))
+            __slice(context.querySelectorAll(selector))
       )
     :
     empty;
