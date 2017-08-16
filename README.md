@@ -19,7 +19,7 @@ This library is not as fully featured as jQuery but does allow you to pull in th
 
 
 ## API Design summary
-
+![alt text](https://raw.githubusercontent.com/nullrocket/ember-simple-dom-tools/master/doc-templates/dimensions.gif)
 
 ## Use
 
