@@ -449,11 +449,12 @@ export function boxModelAdjustment( elem, dimension, box, isBorderBox, styles, c
 
   // Adjustment may not be necessary
   if ( box === ( isBorderBox ? "border" : "content" ) ) {
+    console.log('in here??',box,( isBorderBox ? "border" : "content" ))
     return 0;
   }
-
+  console.log('here')
   for ( ; i < 4; i += 2 ) {
-
+console.log(i);
     // Both box models exclude margin
     if ( box === "margin" ) {
       delta += css(elem, box + cssExpand[ i ], true, styles);

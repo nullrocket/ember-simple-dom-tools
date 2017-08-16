@@ -1,7 +1,7 @@
 import append from './append';
 import create from './create';
 import  {height, DIMENSION_OPTIONS} from './height';
-import outerHeight from './outer-height';
+import {outerHeight} from './outer-height';
 import outerWidth from './outer-width';
 import select from './select';
 import {width} from './width';

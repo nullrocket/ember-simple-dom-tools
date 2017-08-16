@@ -19,17 +19,19 @@ function _getWidthOrHeight( elem, dimension, extra ) {
   var styles = getStyles(elem);
   var val = curCSS(elem, dimension, styles);
   var isBorderBox = css(elem, "boxSizing", false, styles) === "border-box";
+
   var valueIsBorderBox = isBorderBox;
 
   // Computed unit is not pixels. Stop here and return.
   if ( rnumnonpx.test(val) ) {
+
     return val;
   }
 
   // Check for style in case a browser which returns unreliable values
   // for getComputedStyle silently falls back to the reliable elem.style
-  valueIsBorderBox = valueIsBorderBox &&
-    ( boxSizingReliableVal || val === elem.style[ dimension ] );
+//  valueIsBorderBox = valueIsBorderBox &&
+ //   ( boxSizingReliableVal || val === elem.style[ dimension ] );
 
   // Fall back to offsetWidth/offsetHeight when value is "auto"
   // This happens for inline elements with no explicit setting (gh-3571)
@@ -48,6 +50,16 @@ function _getWidthOrHeight( elem, dimension, extra ) {
   val = parseFloat(val) || 0;
 
   // Adjust for the element's box model
+  console.log(val,boxModelAdjustment(
+    elem,
+    dimension,
+    extra || ( isBorderBox ? "border" : "content" ),
+    valueIsBorderBox,
+    styles,
+
+    // Provide the current computed size to request scroll gutter calculation (gh-3589)
+    val
+  ));
   return ( val +
     boxModelAdjustment(
       elem,
@@ -92,7 +104,7 @@ function getWidthOrHeight( dimension ) {
       if ( value ) {
         element.style.height = value;
       }
-      return value ? parseFloat(element.style.height) : _getWidthOrHeight(element, dimension);
+      return value ? parseFloat(element.style.height) : _getWidthOrHeight(element, dimension,false);
     }
   }
 }
@@ -114,7 +126,7 @@ function getWidthsOrHeights( dimension ) {
         if ( value ) {
           elements.style.height = value;
         }
-        return value ? parseFloat(elements.style.height) : _getWidthOrHeight(elements, dimension);
+        return value ? parseFloat(elements.style.height) : _getWidthOrHeight(elements, dimension,false);
       }
     }
   }
@@ -122,6 +134,7 @@ function getWidthsOrHeights( dimension ) {
 
 
 function dimension( dim ) {
+
   let dimension = getWidthOrHeight(dim);
   let dimensions = getWidthsOrHeights(dim);
   return function _dimension( elements, ...params ) {
@@ -155,3 +168,6 @@ function dimension( dim ) {
 
 export let height = dimension('height');
 export let width = dimension("width");
+export let outerHeight = dimension("height");
+
+
